@@ -1,0 +1,244 @@
+{
+  "training_data": [
+    {
+      "image_path": "dataset_images/interior1.jpg",
+      "style": "tradycyjne klasyczne wnętrze",
+      "characteristics": ["czyste linie", "drewniane meble", "metalowe detale", "neutralne kolory", "przestronne"],
+      "materials": ["drewno", "stal", "granit", "ceramika"],
+      "colors": ["biały", "beżowy", "czarny", "żółty"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior2.jpg",
+      "style": "rustykalne",
+      "characteristics": ["jasne drewno", "przytulne", "naturalne światło","roślinne akcenty", "funkcjonalne"],
+      "materials": ["drewno", "wiklina", "bawełna", "ceramika"],
+      "colors": ["beżowy", "brąz", "zielony","czarny"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior3.jpg",
+      "style": "tematyczny - pojazdy",
+      "characteristics": ["mnogie dekoracje", "wysokie sufity", "otwarta przestrzeń", "zabawki"],
+      "materials": ["drewno", "tekstylia", "plastik", "wykładzina"],
+      "colors": ["jasnoniebieski", "beżowy", "czerwony", "biały"],
+      "room_type": "pokój dziecięcy"
+    },
+    {
+      "image_path": "dataset_images/interior4.jpg",
+      "style": "wielobarwny",
+      "characteristics": ["obraz", "pluszaki", "lalki", "przytulne", "tradycyjne"],
+      "materials": ["drewno", "kwiaty", "kafelki", "tekstylia"],
+      "colors": ["zielony", "czerwony", "biały", "brązowy"],
+      "room_type": "pokój dziecięcy"
+    },
+    {
+      "image_path": "dataset_images/interior5.jpg",
+      "style": "klasyczny rustykalny",
+      "characteristics": ["warzywa", "funkcjonalne", "różnorodne faktury", "przytulne"],
+      "materials": ["drewno", "stal", "kafelki", "ceramika"],
+      "colors": ["brązowy", "ciepłe", "ziemiste", "szary"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior6.jpg",
+      "style": "nowoczesny",
+      "characteristics": ["proste meble", "akcenty roślinne", "obrazy", "eleganckie", "zimne"],
+      "materials": ["drewno jesionowe", "ceramika", "wiklina"],
+      "colors": ["biały", "beżowy", "złoty", "kość słoniowa"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior7.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["lustra", "wzorzyste tapety", "pozłacane akcenty", "dramatyczne"],
+      "materials": ["drewno dębowe", "tapeta papierowa", "szkło", "tekstylia"],
+      "colors": ["brązowy", "różowy", "złoty", "beżowy"],
+      "room_type": "sypialnia"
+    },
+    {
+      "image_path": "dataset_images/interior8.jpg",
+      "style": "mid-century modern",
+      "characteristics": ["drewniane akcenty", "błyszczące powierzchnie", "kompaktowe", "przestronne"],
+      "materials": ["drewno", "płyta laminowana", "kafelki terakotowe"],
+      "colors": ["biały", "brązowy", "beżowy", "czarny"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior9.jpg",
+      "style": "nowoczesny",
+      "characteristics": [ "jasne", "zimne", "czyste"],
+      "materials": ["płyta laminowana"],
+      "colors": ["biały", "srebrny"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior10.jpg",
+      "style": "rustykalne",
+      "characteristics": ["ciepłe", "drewniane meble", "metalowe klamki"],
+      "materials": ["drewno", "kafelki terakotowe", "rośliny"],
+      "colors": ["biały", "złoty", "czarny", "srebrny"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior11.jpg",
+      "style": "farmhouse",
+      "characteristics": ["naturalne światło", "złote akcenty", "duże okna", "przestronne"],
+      "materials": ["drewno", "rośliny","stal pozłacana i chromowana"],
+      "colors": ["biały", "złoty", "czarny", "srebrny"],
+      "room_type": "jadalnia"
+    },
+    {
+      "image_path": "dataset_images/interior12.jpg",
+      "style": "tradycyjne",
+      "characteristics": ["kręte schody", "drewniane meble", "monumentalne", "przestronne","zdobione balustrady"],
+      "materials": ["drewno", "rośliny","stal","kafelki z kamienia naturalnego"],
+      "colors": ["biały", "złoty", "brązowy", "beżowy"],
+      "room_type": "klatka schodowa"
+    },
+    {
+      "image_path": "dataset_images/interior13.jpg",
+      "style": "farmhouse",
+      "characteristics": ["akcenty roślinne", "drewniane meble", "dekoracje ceramiczne", "przytulne"],
+      "materials": ["drewno", "rośliny","ceramika"],
+      "colors": ["brązowy", "limonkowy", "żółty"],
+      "room_type": "jadalnia"
+    },
+    {
+      "image_path": "dataset_images/interior14.jpg",
+      "style": "rustykalny",
+      "characteristics": ["kafelki terakotowe", "drewniane meble", "dekoracje ceramiczne", "przytulne"],
+      "materials": ["drewno", "szkło","ceramika"],
+      "colors": ["jasnobrązowy", "pomarańczowy", "żółty"],
+      "room_type": "jadalnia"
+    },
+    {
+      "image_path": "dataset_images/interior15.jpg",
+      "style": "indyjski",
+      "characteristics": ["kafelki terakotowe", "drewniane meble", "gobeliny", "przytulne"],
+      "materials": ["kwiaty", "tekstylia","ceramika"],
+      "colors": ["pomarańczowy", "zielony", "żółty"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior16.jpg",
+      "style": "nowoczesny",
+      "characteristics": ["stół szklany", "obraz", "świało sztuczne", "poważne"],
+      "materials": ["drewno", "szkło","ceramika"],
+      "colors": ["czarny", "ciemnozielony", "biały"],
+      "room_type": "jadalnia"
+    },
+    {
+      "image_path": "dataset_images/interior17.jpg",
+      "style": "nowoczesny",
+      "characteristics": ["proste kształty", "drewniane meble", "dekoracje stalowe", "eleganckie"],
+      "materials": ["drewno", "metal","tesktylia"],
+      "colors": ["beżowy", "pomarańczowy", "złoty"],
+      "room_type": "jadalnia"
+    },
+    {
+      "image_path": "dataset_images/interior18.jpg",
+      "style": "farmhouse",
+      "characteristics": ["naturalne światło", "drewniane meble", "kwieciste motywy","ceglany piec", "przestronne"],
+      "materials": ["drewno", "szkło","cegły"],
+      "colors": ["brązowy", "biały", "różowy"],
+      "room_type": "jadalnia"
+    },
+    {
+      "image_path": "dataset_images/interior19.jpg",
+      "style": "nadmorski",
+      "characteristics": ["szkalny stół", "naturalne światło", "liczne okna", "przestronne"],
+      "materials": ["kwiaty", "szkło","tekstylia"],
+      "colors": ["biały", "limonkowy"],
+      "room_type": "jadalnia"
+    },
+    {
+      "image_path": "dataset_images/interior20.jpg",
+      "style": "południowo-zachodni",
+      "characteristics": ["kafelki terakotowe", "drewniane meble", "wzorzyste wykończenia", "liczne żyrandole"],
+      "materials": ["drewno", "tekstylia","stal chromowana"],
+      "colors": ["jasnobrązowy", "czerwony", "żółty"],
+      "room_type": "jadalnia"
+    },
+    {
+      "image_path": "dataset_images/interior21.jpg",
+      "style": "kobiecy",
+      "characteristics": ["kryształowy żyrandol", "stalowe wykończenia", "naturalne światło", "przytulne"],
+      "materials": ["drewno", "metal","ceramika"],
+      "colors": ["jasnobrązowy", "pomarańczowy", "żółty"],
+      "room_type": "jadalnia"
+    },
+    {
+      "image_path": "dataset_images/interior22.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["pozłacane akcenty", "drewniane meble", "zdobione meble", "eleganckie"],
+      "materials": ["drewno", "tekstylia","ceramika"],
+      "colors": ["czerwony", "pomarańczowy", "złoty"],
+      "room_type": "jadalnia"
+    },
+    {
+      "image_path": "dataset_images/interior23.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["szklany stół", "obrazy ścienne", "motywy roślinne", "eleganckie"],
+      "materials": ["tekstylia", "szkło","drewno"],
+      "colors": ["brązowy", "pomarańczowy", "biały"],
+      "room_type": "jadalnia"
+    },
+    {
+      "image_path": "dataset_images/interior24.jpg",
+      "style": "nowoczesny",
+      "characteristics": ["surowe", "drewniane meble", "minimalistyczne obrazy", "kamienna posadzka"],
+      "materials": ["drewno", "tekstylia","kamień"],
+      "colors": ["szary", "pomarańczowy", "żółty"],
+      "room_type": "jadalnia"
+    },
+    {
+      "image_path": "dataset_images/interior25.jpg",
+      "style": "eklektyczny",
+      "characteristics": ["ceglane ściany", "nowoczesne meble", "szklane stoły", "wzorzyste dywany"],
+      "materials": ["cegła", "tekstylia","stal chromowana", "drewno"],
+      "colors": ["biały", "pomarańczowy", "żółty"],
+      "room_type": "jadalnia"
+    },
+    {
+      "image_path": "dataset_images/interior26.jpg",
+      "style": "farmhouse",
+      "characteristics": ["kafelki terakotowe", "drewniane meble", "naturalne światło", "otwarte"],
+      "materials": ["drewno", "kwiaty","drzewa"],
+      "colors": ["jasnobrązowy", "zielony", "biały"],
+      "room_type": "jadalnia"
+    },
+    {
+      "image_path": "dataset_images/interior27.jpg",
+      "style": "kobiecy",
+      "characteristics": ["wysokie", "monumentalne meble", "eleganckie zwieńczenia", "przestronne"],
+      "materials": ["testylia", "szkło","rośliny"],
+      "colors": ["szary", "biały", "beżowy"],
+      "room_type": "jadalnia"
+    },
+    {
+      "image_path": "dataset_images/interior28.jpg",
+      "style": "rustykalny",
+      "characteristics": ["drweniane panele podłogowe", "drewniane meble", "zdobione ściany", "przestronne"],
+      "materials": ["drewno", "tekstylia","szkło"],
+      "colors": ["biały", "beżowy", "ciemnobrązowy"],
+      "room_type": "jadalnia"
+    },
+    {
+      "image_path": "dataset_images/interior29.jpg",
+      "style": "azjatycki",
+      "characteristics": ["kafelki ceramiczne", "drewniane meble", "wzorzyste akcenty"],
+      "materials": ["drewno", "tekstylia"],
+      "colors": ["biały", "beżowy", "ciemnozielony"],
+      "room_type": "sypialnia"
+    },
+    {
+      "image_path": "dataset_images/interior30.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["kafelki terakotowe", "drewniane meble", "metalowe szafy", "boazeria ścienna","eleganckie"],
+      "materials": ["drewno", "stal","tekstylia"],
+      "colors": ["ciemnobrązowy", "biały", "beżowy","czarny"],
+      "room_type": "jadalnia"
+    }
+  ]
+}
