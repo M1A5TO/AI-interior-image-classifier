@@ -598,6 +598,614 @@
       "materials": ["drewno","skóra"],
       "colors": ["beżowy", "biały", "jasnobrązowy","czarny"],
       "room_type": "pokój biurowy"
+    },
+    {
+      "image_path": "dataset_images/interior76.jpg",
+      "style": "minimalistyczny",
+      "characteristics": ["drewniane biurko","krzesło obrotowe","laptop","drukarka","metalowy kosz na śmieci"],
+      "materials": ["drewno","skóra","metal","szkło"],
+      "colors": ["beżowy", "biały", "jasnobrązowy","czarny"],
+      "room_type": "pokój biurowy"
+    },
+    {
+      "image_path": "dataset_images/interior77.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["drewniane krzesło","obrazy ścienne","kręte schody","wzorzysta podłoga","przestronne"],
+      "materials": ["drewno","marmur"],
+      "colors": ["beżowy", "biały", "brązowy"],
+      "room_type": "schody wewnętrzne"
+    },
+    {
+      "image_path": "dataset_images/interior78.jpg",
+      "style": "kobiecy",
+      "characteristics": ["wysokie łóżko","drewniane meble","figury koni","wianek ozdobny","naturalne światło","duże okna"],
+      "materials": ["drewno","tekstylia","rośliny"],
+      "colors": ["beżowy", "biały", "żółty","szary"],
+      "room_type": "pokój dziecięcy"
+    },
+    {
+      "image_path": "dataset_images/interior79.jpg",
+      "style": "kobiecy",
+      "characteristics": ["duża wanna","wiklinowy koszyk","wzorzyste ściany","kabina prysznicowa","naturalne światło","eleganckie"],
+      "materials": ["wiklina","ceramika","tekstylia"],
+      "colors": ["beżowy", "biały", "żółty","czerwony"],
+      "room_type": "łazienka"
+    },
+    {
+      "image_path": "dataset_images/interior80.jpg",
+      "style": "współczesny",
+      "characteristics": ["kafelki ścienne","kwadratowe lustro","obraz ścienny","ciepłe kolory"],
+      "materials": ["szkło","ceramika"],
+      "colors": ["beżowy", "biały", "żółty"],
+      "room_type": "łazienka"
+    },
+    {
+      "image_path": "dataset_images/interior81.jpg",
+      "style": "śródziemnomorski",
+      "characteristics": ["kafelki terakotowe","drewniana szafka","duży zlew","wianek ozdobny","duże lustro"],
+      "materials": ["drewno","rośliny","ceramika"],
+      "colors": ["beżowy", "biały", "ciemnobrązowy","czerwony"],
+      "room_type": "łazienka"
+    },
+    {
+      "image_path": "dataset_images/interior82.jpg",
+      "style": "farmhouse",
+      "characteristics": ["drewniana rama lustra","drewniane meble","granitowy blat"],
+      "materials": ["drewno","granit"],
+      "colors": ["beżowy", "biały", "ciemnobrązowy","czarny"],
+      "room_type": "łazienka"
+    },
+    {
+      "image_path": "dataset_images/interior83.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["drewniane meble","granitowy blat","kafelki kamienne","duże okna","duże lustro"],
+      "materials": ["drewno","granit","ceramika"],
+      "colors": ["beżowy", "biały", "jasnobrązowy","czarny","czerwony","złoty"],
+      "room_type": "łazienka"
+    },
+    {
+      "image_path": "dataset_images/interior84.jpg",
+      "style": "kobiecy",
+      "characteristics": ["duża wanna","drewniane meble","kafelki granitowe","kabina prysznicowa"],
+      "materials": ["drewno","ceramika","granit","szkło"],
+      "colors": ["beżowy", "biały", "jasnobrązowy","szary"],
+      "room_type": "łazienka"
+    },
+    {
+      "image_path": "dataset_images/interior85.jpg",
+      "style": "rustykalny",
+      "characteristics": ["duże lustra","drewniane meble","obrazy ścienne","granitowy blat","sztuczne światło","muszla klozetowa"],
+      "materials": ["drewno","ceramika","szkło","granit"],
+      "colors": ["beżowy", "biały", "brązowy"],
+      "room_type": "łazienka"
+    },
+    {
+      "image_path": "dataset_images/interior86.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["muszla klozetowa","bidet","mały zlew","kompaktowe"],
+      "materials": ["ceramika","stal chromowana"],
+      "colors": ["beżowy", "biały", "brązowy"],
+      "room_type": "łazienka"
+    },
+    {
+      "image_path": "dataset_images/interior87.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["granitowe blaty","drewniane meble","ciepłe barwy","wyspa kuchenna"],
+      "materials": ["drewno","granit"],
+      "colors": ["beżowy", "biały", "jasnobrązowy","czarny"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior88.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["przeszklone szafki","drewniane meble","wyspa kuchenna","obrazy ścienne"],
+      "materials": ["drewno","szkło"],
+      "colors": ["beżowy", "biały", "jasnobrązowy","szary"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior89.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["metalowe nogi stołu","szklany blat","złota miska"],
+      "materials": ["szkło","tekstylia","metal"],
+      "colors": ["beżowy", "biały", "bladozielony","złoty"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior90.jpg",
+      "style": "rustykalny",
+      "characteristics": ["fotel na biegunach","Wzprzysty dywan","drewniane meble","naturalne światło","przeszklone ściany","przestronne"],
+      "materials": ["drewno","tekstylia","szkło"],
+      "colors": ["beżowy", "biały", "ciemnobrązowy"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior91.jpg",
+      "style": "współczesny",
+      "characteristics": ["granitowe blaty","drewniane meble","ciepłe barwy","kafelki ścienne","urządzenia AGD","szklane dzbanki"],
+      "materials": ["drewno","granit","ceramika","stal","szkło"],
+      "colors": ["beżowy", "biały", "brązowy","czarny"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior92.jpg",
+      "style": "współczesny",
+      "characteristics": ["drewniane ozdoby","drewniane meble","elegancki kominek","wzorzysty dywan"],
+      "materials": ["drewno","tekstylia"],
+      "colors": ["beżowy", "biały"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior93.jpg",
+      "style": "współczesny",
+      "characteristics": ["długie biurko","maszyny do pisania","komputer stacjonarny","drewniane meble","obrazy ścienne"],
+      "materials": ["drewno","tekstylia"],
+      "colors": ["beżowy", "biały", "jasnobrązowy","czerwony"],
+      "room_type": "pokój biurowy"
+    },
+    {
+      "image_path": "dataset_images/interior94.jpg",
+      "style": "farmhouse",
+      "characteristics": ["granitowe blaty","metalowe nogi od stołu","drewniane meble","duże drzwi","wzorzysty dywan","wysokie","pozłacana lampa"],
+      "materials": ["drewno","stal","szkło","tekstylia","rośliny"],
+      "colors": ["brązowy","czarny","zielony"],
+      "room_type": "pokój biurowy"
+    },
+    {
+      "image_path": "dataset_images/interior95.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["skórzana kanapa","drewniane meble","obraz ścienny","okno barowe","zdobione ramy"],
+      "materials": ["drewno","skóra"],
+      "colors": ["złoty", "jasnobrązowy","czerwony"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior96.jpg",
+      "style": "minimalistyczny",
+      "characteristics": ["skórzany fotel","drewniane meble","kompaktowe","prostopadłościenne lampy"],
+      "materials": ["drewno","tekstylia"],
+      "colors": ["beżowy", "biały", "szarozielony","czarny"],
+      "room_type": "pokój biurowy"
+    },
+    {
+      "image_path": "dataset_images/interior97.jpg",
+      "style": "farmhouse",
+      "characteristics": ["słoneczniki ozdobne","drewniane meble","ciepłe barwy","okrągły sół","wiklinowe krzesłą"],
+      "materials": ["drewno","wiklina","szkło"],
+      "colors": ["beżowy", "biały", "jasnobrązowy","szary"],
+      "room_type": "jadalnia"
+    },
+    {
+      "image_path": "dataset_images/interior98.jpg",
+      "style": "współczesny",
+      "characteristics": ["kafelki podłogowe","granitowy blat","drewniane fronty","wąskie"],
+      "materials": ["drewno","granit","kamień"],
+      "colors": ["biały", "szary","czarny"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior99.jpg",
+      "style": "współczesny",
+      "characteristics": ["wiklinowe fotele","skórzana kanapa","obrazy ścienne","kafelki podłogowe","proste meble"],
+      "materials": ["wiklina","skóra","kamień"],
+      "colors": ["beżowy", "biały", "ciemnobrązowy","czarny"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior100.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["kafelki ceramiczne","muszla klozetowa","kompaktowe","grzejnik stalowy"],
+      "materials": ["ceramika","stal"],
+      "colors": ["beżowy", "biały", "czerwony"],
+      "room_type": "łazienka"
+    },
+    {
+      "image_path": "dataset_images/interior87.jpg",
+      "style": "minimalistyczny",
+      "characteristics": ["granitowe blaty","drewniane meble","ciepłe barwy","wyspa kuchenna"],
+      "materials": ["drewno","granit"],
+      "colors": ["beżowy", "biały", "jasnobrązowy","czarny"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior101.jpg",
+      "style": "śródziemnomorski",
+      "characteristics": ["skórzany fotel","duże okna","stalowe nogi stołu","drewniany blat stołu"],
+      "materials": ["drewno","skóra","tekstylia","stal"],
+      "colors": ["szary", "biały", "brązowy","czarny"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior102.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["wiklinowa kanapa","drewniane meble","obrazy ścienne","kamienny kominek","akcenty roślinne","wzorzyste poduszki"],
+      "materials": ["drewno","wiklina","tekstylia","kamień","roślinny"],
+      "colors": ["beżowy", "biały", "jasnobrązowy","zielony","czerwony"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior103.jpg",
+      "style": "współczesny",
+      "characteristics": ["granitowe blaty","drewniane meble","ciepłe barwy","wyspa kuchenna"],
+      "materials": ["drewno","granit"],
+      "colors": ["beżowy", "biały", "jasnobrązowy","czarny","szary"],
+      "room_type": "aneks kuchenny"
+    },
+    {
+      "image_path": "dataset_images/interior104.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["stalowe balustrady","drewniane drzwi","duże okna","zdobione ramy","duży żyrandol","obrazy ścienne"],
+      "materials": ["drewno","stal"],
+      "colors": ["beżowy", "biały", "brązowy","czarny"],
+      "room_type": "schody wewnętrzne"
+    },
+    {
+      "image_path": "dataset_images/interior105.jpg",
+      "style": "kobiecy",
+      "characteristics": ["duże łóżko","kolorowe meble","wzorzysta pościel","pluszaki","wykładzina podłogowa","akcenty roślinne"],
+      "materials": ["drewno","tekstylia","rośliny"],
+      "colors": ["beżowy", "biały", "żółty"],
+      "room_type": "pokój dziecięcy"
+    },
+    {
+      "image_path": "dataset_images/interior106.jpg",
+      "style": "współczesny",
+      "characteristics": ["skórzany fotel","drewniane meble","roślina doniczkowa","ciepłe barwy","telefon stacjonarny","gumoleum"],
+      "materials": ["drewno","rośliny","skóra"],
+      "colors": ["beżowy", "biały", "jasnobrązowy","czarny"],
+      "room_type": "pokój biurowy"
+    },
+    {
+      "image_path": "dataset_images/interior107.jpg",
+      "style": "rustykalny",
+      "characteristics": ["skórzane kowbojki","skórzana kanapa","drewniane meble","wzorzysty dywan","przytulne"],
+      "materials": ["drewno","tekstylia","skóra"],
+      "colors": ["beżowy", "brązowy","czarny"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior108.jpg",
+      "style": "nowoczesny",
+      "characteristics": ["wanna","drewniane akcenty","muszla klozetowa","dywanik łazienkowy","kompaktowe"],
+      "materials": ["ceramika","drewno","tekstylia"],
+      "colors": ["beżowy", "biały", "jasnobrązowy","czarny"],
+      "room_type": "łazienka"
+    },
+    {
+      "image_path": "dataset_images/interior109.jpg",
+      "style": "nowoczesny",
+      "characteristics": ["kafelki podłogowe","drewniane meble","metalowe klamki","urządzenia AGD"],
+      "materials": ["drewno","kamień"],
+      "colors": ["biały", "ciemnobrązowy"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior110.jpg",
+      "style": "współczesny",
+      "characteristics": ["granitowe blaty","drewniane meble","urządzenia AGD","kompaktowe"],
+      "materials": ["drewno","granit"],
+      "colors": ["biały", "ciemnobrązowy","czarny","szary"],
+      "room_type": "aneks kuchenny"
+    },
+    {
+      "image_path": "dataset_images/interior111.jpg",
+      "style": "współczesny",
+      "characteristics": ["kamienna ściana","szeroka kanapa","duże wazony","obrazy ścienne"],
+      "materials": ["tekstylia","kamień"],
+      "colors": ["beżowy", "biały","czarny"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior112.jpg",
+      "style": "nowoczesny",
+      "characteristics": ["komputer stacjonarny","drukarka","duże biurko","drewniane meble"],
+      "materials": ["drewno","tworzywo sztuczne"],
+      "colors": ["beżowy","biały", "ciemnobrązowy","czarny"],
+      "room_type": "pokój biurowy"
+    },
+    {
+      "image_path": "dataset_images/interior113.jpg",
+      "style": "rustykalny",
+      "characteristics": ["wzorzyste tapety","urządzenia AGD","drewniane blaty","wyspa kuchenna","drewniane meble"],
+      "materials": ["drewno","stal"],
+      "colors": ["brązowy", "biały","czerwony"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior114.jpg",
+      "style": "rustykalny",
+      "characteristics": ["urządzenia AGD","drewniane meble","wzorzysty dywan","obrazy ścienne","kompaktowe"],
+      "materials": ["tekstylia","drewno","stal"],
+      "colors": ["beżowy", "biały","jasnobrązowy","czerwony","czarny"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior115.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["muszla klozetowa","zlew ceramiczny","wzorzysta zasłona prysznicowa","kafelki podłogowe"],
+      "materials": ["ceramika","tekstylia","stal chromowana"],
+      "colors": ["beżowy", "biały"],
+      "room_type": "łazienka"
+    },
+    {
+      "image_path": "dataset_images/interior116.jpg",
+      "style": "farmhouse",
+      "characteristics": ["muszla klozetowa","drewniana szafka","lustro","mały zlew","kafelki ścienne"],
+      "materials": ["drewno","szkło","ceramika"],
+      "colors": ["szary", "biały","brązowy"],
+      "room_type": "łazienka"
+    },
+    {
+      "image_path": "dataset_images/interior117.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["duża kanapa","drewniane stoliki","obrazy ścienne","wysoka lampa"],
+      "materials": ["tekstylia","drewno"],
+      "colors": ["beżowy", "biały","czarny","brązowy"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior118.jpg",
+      "style": "współczesny",
+      "characteristics": ["granitowe kolumny","kamienne kafelki","duże lustro","duże okno","szklany stół"],
+      "materials": ["tekstylia","kamień","granit","szkło"],
+      "colors": ["beżowy", "biały","szary"],
+      "room_type": "jadalnia"
+    },
+    {
+      "image_path": "dataset_images/interior119.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["drewniana szafka","granitowy stół","duży globus","wysokie lustro","płaskorzeźby","małe taborety","eleganckie"],
+      "materials": ["tekstylia","kamień","granit","szkło","drewno"],
+      "colors": ["beżowy", "biały","złoty","brązowy"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior120.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["szerokie schody","ozdobne balustrady","granitowe kolumny","obrazy ścienne","wzorzyste mozaiki","pozłacane akcenty"],
+      "materials": ["tekstylia","drewno","granit","ceramika"],
+      "colors": ["beżowy", "biały","brązowy","jasnozielony"],
+      "room_type": "schody wewnętrzne"
+    },
+    {
+      "image_path": "dataset_images/interior121.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["wzorzyste meble","akcenty roślinne","wysoka lampa","obrazy ścienne"],
+      "materials": ["tekstylia","kamień"],
+      "colors": ["beżowy", "biały","czerwony","żółty"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior122.jpg",
+      "style": "rustykalny",
+      "characteristics": ["drewniane meble","drewniane balustrady","meblościanka","wieniec ozdobny","telewizor"],
+      "materials": ["tekstylia","drewno","rośliny"],
+      "colors": ["beżowy", "biały","czarny"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior123.jpg",
+      "style": "farmhouse",
+      "characteristics": ["wiklinowy fotel","szeroka kanapa","wzorzyste poduszki","szeroki stolik","wykładzina podłogowa"],
+      "materials": ["tekstylia","wiklina","drewno"],
+      "colors": ["beżowy", "biały","brązowy","szary"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior124.jpg",
+      "style": "minimalistyczny",
+      "characteristics": ["szklane drzwi","skórzana kanapa","zegar ścienny"],
+      "materials": ["tekstylia","skóra","szkło","rośliny"],
+      "colors": ["beżowy", "biały","szary","zielony"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior125.jpg",
+      "style": "farmhouse",
+      "characteristics": ["przestronne","skórzana kanapa","krzesło na biegunach","obraz ścienny","wykładzina podłogowa"],
+      "materials": ["tekstylia","drewno"],
+      "colors": ["beżowy", "biały","czerwony","szary"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior126.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["przestronne","kwadratowy telewizor","wykładzina podłogowa","obraz ścienny","drewniane meble","mały kominek"],
+      "materials": ["tekstylia","drewno","ceramika","rośliny"],
+      "colors": ["beżowy", "biały","zielony","brązowy"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior127.jpg",
+      "style": "farmhouse",
+      "characteristics": ["drewniane meble","skórzane kanapy","wzorzyste poduszki","obrazy ścienne","naturalne światło"],
+      "materials": ["tekstylia","drewno","skóra"],
+      "colors": ["beżowy", "biały","ciemnobrązowy","niebieski","czerwony"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior128.jpg",
+      "style": "farmhouse",
+      "characteristics": ["stalowe nogi od stolika","przestronne","granitowy kominek","szklane stoliki","obraz ścienny","duże okna","naturalne światło"],
+      "materials": ["tekstylia","stal","granit","szkło"],
+      "colors": ["beżowy", "biały","czarny","brązowy"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior129.jpg",
+      "style": "nowoczesny",
+      "characteristics": ["mały telewizor","skórzana kanapa","granitowy kominek","szklany stolik","drewniany stolik","obraz ścienny"],
+      "materials": ["tekstylia","granit","drewno","szkło","skóra"],
+      "colors": ["beżowy", "biały","ciemnozielony","czarny","brązowy"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior130.jpg",
+      "style": "rustykalny",
+      "characteristics": ["drewniane meble","lustro","przeszklone szafki","mały zlew"],
+      "materials": ["szkło","drewno"],
+      "colors": ["beżowy", "biały","brązowy"],
+      "room_type": "łazienka"
+    },
+    {
+      "image_path": "dataset_images/interior131.jpg",
+      "style": "współczesny",
+      "characteristics": ["duże łóżko","wiklinowy koszyk","lampy ścienne","obrazy ścienne","drewniane meble"],
+      "materials": ["tekstylia","drewno","wiklina"],
+      "colors": ["beżowy", "biały","limonkowy","ciemnobrązowy"],
+      "room_type": "sypialnia"
+    },
+    {
+      "image_path": "dataset_images/interior132.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["szklany stół","kafelki podłogowe","wzorzyste fotele","skórzana kanapa"],
+      "materials": ["tekstylia","skóra","drewno","szkło","kwiaty"],
+      "colors": ["beżowy", "biały","czarny","żółty"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior133.jpg",
+      "style": "mid-century modern",
+      "characteristics": ["przestronne","drewniane meble","mały telewizor","mnogie okna","kamienna ściana","okrągły dywan"],
+      "materials": ["tekstylia","kamień","drewno","szkło","rośliny"],
+      "colors": ["beżowy", "biały","zółty"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior134.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["urządzenia AGD","drewniane meble","blat kafelkowy","wysokie szafki","naturalne światło"],
+      "materials": ["kamień","drewno","stal"],
+      "colors": ["beżowy", "biały","zółty","brązowy"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior135.jpg",
+      "style": "farmhouse",
+      "characteristics": ["wiklinowe krzesła","drewniane blaty","przeszklone szafki","ceramiczne ozdoby","wyspa kuchenna","wiklinowe zasłony"],
+      "materials": ["wiklina","drewno","ceramika","rośliny","szkło"],
+      "colors": ["beżowy", "biały","brązowy"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior136.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["urządzenia AGD","granitowy blat","kafelki ozdobne","przeszklone szafki","wyspa kuchenna"],
+      "materials": ["granit","ceramika","szkło"],
+      "colors": ["beżowy", "biały","zółty","brązowy"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior137.jpg",
+      "style": "współczesny",
+      "characteristics": ["przestronne","szeroka kanapa","obrazy ścienne","wzorzysty dywan","wzorzyste poduszki","szkalny stolik","chude nogi"],
+      "materials": ["tekstylia","drewno","szkło","stal chromowana"],
+      "colors": ["beżowy", "biały","zielony","brązowy","pomarańczowy","czerwony"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior138.jpg",
+      "style": "mid-century modern",
+      "characteristics": ["mały telewizor","duze głośniki","skórzana kanapa","drewniane meble","obraz ścienny","wzorzysty dywan","duże okno"],
+      "materials": ["drewno","tekstylia","szkło","skóra","rośliny"],
+      "colors": ["beżowy", "biały","niebieski","brązowy","czarny"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior139.jpg",
+      "style": "farmhouse",
+      "characteristics": ["skórzane kanapy","mały telewizor","drewniane meble","mały dywan","obrazy ścienne","boazeria sufitowa"],
+      "materials": ["skóra","drewno"],
+      "colors": ["beżowy", "biały","brązowy"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior140.jpg",
+      "style": "kobiecy",
+      "characteristics": ["wąskie łóżko","obrazy ścienne","naturalne światło","wykładzina podłogowa","drewniane meble","małe krzesełka","mały stoliczek","motyle"],
+      "materials": ["drewno","stal","tekstylia"],
+      "colors": ["beżowy", "biały","zółty","czerwony"],
+      "room_type": "pokój dziecięcy"
+    },
+    {
+      "image_path": "dataset_images/interior141.jpg",
+      "style": "nowoczesny",
+      "characteristics": ["kamienne stopnie","drewniane poręcze","szklane balustrady","pozłacane pręty"],
+      "materials": ["drewno","kamień","szkło","stal chromowana"],
+      "colors": ["biały", "szary","złoty","ciemnobrązowy"],
+      "room_type": "schody wewnętrzne"
+    },
+    {
+      "image_path": "dataset_images/interior142.jpg",
+      "style": "minimalistyczny",
+      "characteristics": ["przestronne","sztuczne światło","granitowe kafelki","prostokątne kolumny"],
+      "materials": ["granit","tekstylia"],
+      "colors": ["beżowy", "biały","szary","czarny","turkusowy"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior143.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["duże biurko","skórzany fotel","drewniane krzesła","wysokie","drewiniana półka"],
+      "materials": ["drewno","skóra","tekstylia","rośliny"],
+      "colors": ["beżowy", "biały","brązowy","szary"],
+      "room_type": "pokój biurowy"
+    },
+    {
+      "image_path": "dataset_images/interior144.jpg",
+      "style": "śródziemnomorski",
+      "characteristics": ["długa kanapa","wzorzysty dywan","rośliny doniczkowe","puf stolik","przeszklone ściany","ceglana kolumna"],
+      "materials": ["tekstylia","szkło","rośliny","cegła"],
+      "colors": ["beżowy", "biały","zółty","brązowy","czerwony"],
+      "room_type": "salon"
+    },
+    {
+      "image_path": "dataset_images/interior145.jpg",
+      "style": "współczesny",
+      "characteristics": ["urządzenia AGD","kafelki podłogowe","stalowe klamki","małe okno"],
+      "materials": ["kamień","stal","szkło"],
+      "colors": ["limonkowy", "biały","szary","czarny"],
+      "room_type": "kuchnia"
+    },
+    {
+      "image_path": "dataset_images/interior146.jpg",
+      "style": "rustykalny",
+      "characteristics": ["drewniane balustrady","stopnie z wykładziną","kafelki ozdobne","roślina doniczkowa"],
+      "materials": ["drewno","tekstylia","roślina"],
+      "colors": ["beżowy", "trukusowy","brązowy"],
+      "room_type": "schody wewnętrzne"
+    },
+    {
+      "image_path": "dataset_images/interior147.jpg",
+      "style": "tradycyjny",
+      "characteristics": ["wąskie blaty","granitowy zlew","muszla klozetowa","ozdobne kafelki","kompaktowe"],
+      "materials": ["granit","ceramika","kamień"],
+      "colors": ["beżowy", "biały","zółty","brązowy","szary"],
+      "room_type": "łazienka"
+    },
+    {
+      "image_path": "dataset_images/interior148.jpg",
+      "style": "współczesny",
+      "characteristics": ["stopnie z wykładziną","drewniane poręcze","stalowe balusrady","obrazy ścienne","granitowe kafelki"],
+      "materials": ["granit","drewno","stal","tekstylia"],
+      "colors": ["beżowy", "biały","szary","brązowy","czarny"],
+      "room_type": "schody wewnętrzne"
+    },
+    {
+      "image_path": "dataset_images/interior149.jpg",
+      "style": "kobiecy",
+      "characteristics": ["wysokie łóżko","szerokie biurko","wykładzina podłogowa","wzorzyste poduszki","pluszaki","duże okno"],
+      "materials": ["szkło","tekstylia"],
+      "colors": ["biały","szary","czerwony"],
+      "room_type": "pokój dziecięcy"
+    },
+    {
+      "image_path": "dataset_images/interior150.jpg",
+      "style": "kobiecy",
+      "characteristics": ["rysunki ścienne","duże okno","motyty roślinne","wysokie łóżko","drewniane meble","wykładzina podłogowa","kryształowy żyrandol","naturalne światło"],
+      "materials": ["drewno","tekstylia","szkło"],
+      "colors": ["biały","szary","jasnoniebieski","czerwony"],
+      "room_type": "pokój dziecięcy"
     }
   ]
 }
