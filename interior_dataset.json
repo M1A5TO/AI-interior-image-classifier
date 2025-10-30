@@ -10,7 +10,7 @@
     },
     {
       "image_path": "dataset_images/interior2.jpg",
-      "style": "rustykalne",
+      "style": "rustykalny",
       "characteristics": ["jasne drewno", "przytulne", "naturalne światło","roślinne akcenty", "funkcjonalne"],
       "materials": ["drewno", "wiklina", "bawełna", "ceramika"],
       "colors": ["beżowy", "brąz", "zielony","czarny"],
@@ -74,7 +74,7 @@
     },
     {
       "image_path": "dataset_images/interior10.jpg",
-      "style": "rustykalne",
+      "style": "rustykalny",
       "characteristics": ["ciepłe", "drewniane meble", "metalowe klamki"],
       "materials": ["drewno", "kafelki terakotowe", "rośliny"],
       "colors": ["biały", "złoty", "czarny", "srebrny"],
@@ -90,7 +90,7 @@
     },
     {
       "image_path": "dataset_images/interior12.jpg",
-      "style": "tradycyjne",
+      "style": "tradycyjny",
       "characteristics": ["kręte schody", "drewniane meble", "monumentalne", "przestronne","zdobione balustrady"],
       "materials": ["drewno", "rośliny","stal","kafelki z kamienia naturalnego"],
       "colors": ["biały", "złoty", "brązowy", "beżowy"],
