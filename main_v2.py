@@ -118,7 +118,7 @@ class EnhancedLoRAInteriorAnalyzer:
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         print(f"Używanie urządzenia: {self.device}")
 
-        self.model, self.preprocess = clip.load("ViT-B/32", device=self.device)
+        self.model, self.preprocess = clip.load("ViT-B/16", device=self.device)
         self.lora_model = LoRACLIPWrapper(self.model, rank=4, alpha=8)
         self.lora_model.to(self.device)
 
@@ -482,7 +482,7 @@ class SimpleInteriorAnalyzer:
 
     def __init__(self, use_lora=False, lora_weights_path=None):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.model, self.preprocess = clip.load("ViT-B/32", device=self.device)
+        self.model, self.preprocess = clip.load("ViT-B/16", device=self.device)
 
         # Załaduj dane treningowe dla atrybutów
         self.training_data = self._load_training_data()
@@ -652,7 +652,7 @@ if __name__ == "__main__":
     parser.add_argument('--train', action='store_true', help='Przeprowadź trening LoRA')
     parser.add_argument('--analyze', type=str, help='Ścieżka do obrazu do analizy')
     parser.add_argument('--use-lora', action='store_true', help='Użyj wytrenowanego modelu LoRA')
-    parser.add_argument('--lora-weights', type=str, default='comprehensive_lora.pth', help='Ścieżka do wag LoRA')
+    parser.add_argument('--lora-weights', type=str, default='lora_models\comprehensive_lora.pth', help='Ścieżka do wag LoRA')
 
     args = parser.parse_args()
 
@@ -662,7 +662,7 @@ if __name__ == "__main__":
         analyzer = EnhancedLoRAInteriorAnalyzer()
         analyzer.fine_tune_comprehensive(
             json_path="interior_dataset.json",
-            epochs=15,
+            epochs=10,
             learning_rate=5e-5,
             save_path=args.lora_weights
         )

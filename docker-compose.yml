@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  interior-analyzer:
+    build: .
+    container_name: interior-style-analyzer
+    working_dir: /app
+
+    # Mapowanie wolumenów dla danych, modeli i wyników
+    volumes:
+      - ./lora_models:/app/lora_models
+      - ./data:/app/data
+      - ./interior_dataset.json:/app/interior_dataset.json
+      - ./test_images:/app/test_images
+
+    # Zmienne środowiskowe
+    environment:
+      - PYTHONUNBUFFERED=1
+      - CUDA_VISIBLE_DEVICES=0  # Dla GPU, usuń jeśli używasz CPU
+
+    # Tryb interaktywny
+    stdin_open: true
+    tty: true
+
+    # Polecenie domyślne
+    command: python main_v2.py --help
+
+  # Opcjonalny serwis Jupyter dla eksperymentów
+  jupyter:
+    build: .
+    container_name: interior-jupyter
+    working_dir: /app
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./lora_models:/app/lora_models
+      - ./data:/app/data
+      - ./notebooks:/app/notebooks
+    command: jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=''
+    profiles:
+      - dev
