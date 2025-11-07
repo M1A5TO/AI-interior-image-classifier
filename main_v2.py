@@ -7,6 +7,10 @@ from collections import Counter
 import json
 import os
 import glob
+import requests
+from io import BytesIO
+import pandas as pd
+import csv
 
 
 class LoRALayer(nn.Module):
@@ -111,6 +115,44 @@ class InteriorStyleDataset(torch.utils.data.Dataset):
             dummy_image = torch.zeros(3, 224, 224)
             dummy_text = clip.tokenize("nowoczesne minimalistyczne wnętrze")
             return dummy_image, dummy_text
+
+
+class URLImageLoader:
+    """Klasa do ładowania obrazów z URL-i"""
+
+    @staticmethod
+    def load_image_from_url(url):
+        """Ładuje obraz z URL"""
+        try:
+            response = requests.get(url, timeout=30)
+            response.raise_for_status()
+            image = Image.open(BytesIO(response.content)).convert('RGB')
+            return image
+        except Exception as e:
+            print(f"Błąd przy ładowaniu obrazu z URL {url}: {e}")
+            return None
+
+    @staticmethod
+    def load_images_from_csv(csv_path, max_images=None):
+        """Ładuje URL-e obrazów z pliku CSV"""
+        images_data = []
+        try:
+            df = pd.read_csv(csv_path)
+            for _, row in df.iterrows():
+                images_data.append({
+                    'offer_id': row['offer_id'],
+                    'seq': row['seq'],
+                    'url': row['url']
+                })
+
+                if max_images and len(images_data) >= max_images:
+                    break
+
+            print(f"Załadowano {len(images_data)} URL-i obrazów z {csv_path}")
+            return images_data
+        except Exception as e:
+            print(f"Błąd przy ładowaniu CSV: {e}")
+            return []
 
 
 class EnhancedLoRAInteriorAnalyzer:
@@ -346,62 +388,82 @@ class EnhancedLoRAInteriorAnalyzer:
         self.save_lora_weights(save_path)
         print(f"Zapisano wagi LoRA do: {save_path}")
 
+    def analyze_image_from_url(self, image_url):
+        """Analizuje obraz z URL"""
+        try:
+            image = URLImageLoader.load_image_from_url(image_url)
+            if image is None:
+                print(f"Nie udało się załadować obrazu z URL: {image_url}")
+                return {}
+
+            image_input = self.preprocess(image).unsqueeze(0).to(self.device)
+            return self._analyze_image_tensor(image_input)
+        except Exception as e:
+            print(f"Błąd podczas analizy obrazu z URL {image_url}: {e}")
+            return {}
+
     def analyze_all_attributes(self, image_path):
         """Analizuje WSZYSTKIE atrybuty bezpośrednio przez model"""
         try:
+            if image_path.startswith('http'):
+                return self.analyze_image_from_url(image_path)
+
             image = Image.open(image_path)
             image_input = self.preprocess(image).unsqueeze(0).to(self.device)
-
-            results = {}
-
-            with torch.no_grad():
-                # Analiza dla każdej kategorii
-                for category, attributes in self.all_categories.items():
-                    if not attributes:  # Pomijaj puste kategorie
-                        continue
-
-                    print(f"Analizowanie {category}...")
-
-                    category_results = []
-
-                    # Różne konteksty dla lepszej generalizacji
-                    contexts = ["", "zdjęcie pokazuje ", "na obrazie widać "]
-
-                    for context in contexts:
-                        # Przygotuj teksty dla tej kategorii
-                        if category == 'room_types':
-                            text_inputs = torch.cat([
-                                clip.tokenize(f"{context}{attr}") for attr in attributes
-                            ]).to(self.device)
-                        else:
-                            text_inputs = torch.cat([
-                                clip.tokenize(f"{context}wnętrze z {attr}") for attr in attributes
-                            ]).to(self.device)
-
-                        # Enkoduj obraz i teksty
-                        image_features = self.lora_model.encode_image(image_input)
-                        text_features = self.lora_model.encode_text(text_inputs)
-
-                        # Normalizuj cechy
-                        image_features = image_features / image_features.norm(dim=-1, keepdim=True)
-                        text_features = text_features / text_features.norm(dim=-1, keepdim=True)
-
-                        # Oblicz podobieństwo
-                        similarity = (100.0 * image_features @ text_features.T).softmax(dim=-1)
-                        values, indices = similarity[0].topk(min(5, len(attributes)))
-
-                        for value, idx in zip(values, indices):
-                            category_results.append((attributes[idx], value.item()))
-
-                    # Agreguj wyniki z różnych kontekstów
-                    aggregated = self._aggregate_category_results(category_results)
-                    results[category] = aggregated
-
-            return results
+            return self._analyze_image_tensor(image_input)
 
         except Exception as e:
             print(f"Błąd podczas analizy: {e}")
             return {}
+
+    def _analyze_image_tensor(self, image_input):
+        """Analizuje tensor obrazu"""
+        results = {}
+
+        with torch.no_grad():
+            # Analiza dla każdej kategorii
+            for category, attributes in self.all_categories.items():
+                if not attributes:  # Pomijaj puste kategorie
+                    continue
+
+                print(f"Analizowanie {category}...")
+
+                category_results = []
+
+                # Różne konteksty dla lepszej generalizacji
+                contexts = ["", "zdjęcie pokazuje ", "na obrazie widać "]
+
+                for context in contexts:
+                    # Przygotuj teksty dla tej kategorii
+                    if category == 'room_types':
+                        text_inputs = torch.cat([
+                            clip.tokenize(f"{context}{attr}") for attr in attributes
+                        ]).to(self.device)
+                    else:
+                        text_inputs = torch.cat([
+                            clip.tokenize(f"{context}wnętrze z {attr}") for attr in attributes
+                        ]).to(self.device)
+
+                    # Enkoduj obraz i teksty
+                    image_features = self.lora_model.encode_image(image_input)
+                    text_features = self.lora_model.encode_text(text_inputs)
+
+                    # Normalizuj cechy
+                    image_features = image_features / image_features.norm(dim=-1, keepdim=True)
+                    text_features = text_features / text_features.norm(dim=-1, keepdim=True)
+
+                    # Oblicz podobieństwo
+                    similarity = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+                    values, indices = similarity[0].topk(min(5, len(attributes)))
+
+                    for value, idx in zip(values, indices):
+                        category_results.append((attributes[idx], value.item()))
+
+                # Agreguj wyniki z różnych kontekstów
+                aggregated = self._aggregate_category_results(category_results)
+                results[category] = aggregated
+
+        return results
 
     def _aggregate_category_results(self, results):
         """Agreguje wyniki dla pojedynczej kategorii"""
@@ -459,7 +521,13 @@ class EnhancedLoRAInteriorAnalyzer:
 
     def _technical_analysis(self, image_path):
         try:
-            image = Image.open(image_path)
+            if image_path.startswith('http'):
+                image = URLImageLoader.load_image_from_url(image_path)
+                if image is None:
+                    return
+            else:
+                image = Image.open(image_path)
+
             img_array = np.array(image)
 
             hsv_img = image.convert('HSV')
@@ -543,59 +611,79 @@ class SimpleInteriorAnalyzer:
         """Główna funkcja analizy obrazu"""
         return self.generate_comprehensive_report(image_path)
 
+    def analyze_image_from_url(self, image_url):
+        """Analizuje obraz z URL"""
+        try:
+            image = URLImageLoader.load_image_from_url(image_url)
+            if image is None:
+                print(f"Nie udało się załadować obrazu z URL: {image_url}")
+                return {}
+
+            image_input = self.preprocess(image).unsqueeze(0).to(self.device)
+            return self._analyze_image_tensor(image_input)
+        except Exception as e:
+            print(f"Błąd podczas analizy obrazu z URL {image_url}: {e}")
+            return {}
+
     def analyze_all_attributes(self, image_path):
         """Analizuje wszystkie atrybuty"""
         try:
+            if image_path.startswith('http'):
+                return self.analyze_image_from_url(image_path)
+
             image = Image.open(image_path)
             image_input = self.preprocess(image).unsqueeze(0).to(self.device)
-
-            results = {}
-
-            with torch.no_grad():
-                for category, attributes in self.all_categories.items():
-                    if not attributes:
-                        continue
-
-                    print(f"Analizowanie {category}...")
-                    category_results = []
-
-                    contexts = ["", "zdjęcie pokazuje ", "na obrazie widać "]
-
-                    for context in contexts:
-                        if category == 'room_types':
-                            text_inputs = torch.cat([
-                                clip.tokenize(f"{context}{attr}") for attr in attributes
-                            ]).to(self.device)
-                        else:
-                            text_inputs = torch.cat([
-                                clip.tokenize(f"{context}wnętrze z {attr}") for attr in attributes
-                            ]).to(self.device)
-
-                        image_features = self.model.encode_image(image_input)
-                        text_features = self.model.encode_text(text_inputs)
-
-                        image_features = image_features / image_features.norm(dim=-1, keepdim=True)
-                        text_features = text_features / text_features.norm(dim=-1, keepdim=True)
-
-                        similarity = (100.0 * image_features @ text_features.T).softmax(dim=-1)
-                        values, indices = similarity[0].topk(min(5, len(attributes)))
-
-                        for value, idx in zip(values, indices):
-                            category_results.append((attributes[idx], value.item()))
-
-                    # Agreguj wyniki
-                    counter = Counter()
-                    for attr, score in category_results:
-                        counter[attr] += score
-                    total = sum(counter.values())
-                    final_results = [(attr, (score / total) * 100) for attr, score in counter.most_common(5)]
-                    results[category] = final_results
-
-            return results
+            return self._analyze_image_tensor(image_input)
 
         except Exception as e:
             print(f"Błąd podczas analizy: {e}")
             return {}
+
+    def _analyze_image_tensor(self, image_input):
+        """Analizuje tensor obrazu"""
+        results = {}
+
+        with torch.no_grad():
+            for category, attributes in self.all_categories.items():
+                if not attributes:
+                    continue
+
+                print(f"Analizowanie {category}...")
+                category_results = []
+
+                contexts = ["", "zdjęcie pokazuje ", "na obrazie widać "]
+
+                for context in contexts:
+                    if category == 'room_types':
+                        text_inputs = torch.cat([
+                            clip.tokenize(f"{context}{attr}") for attr in attributes
+                        ]).to(self.device)
+                    else:
+                        text_inputs = torch.cat([
+                            clip.tokenize(f"{context}wnętrze z {attr}") for attr in attributes
+                        ]).to(self.device)
+
+                    image_features = self.model.encode_image(image_input)
+                    text_features = self.model.encode_text(text_inputs)
+
+                    image_features = image_features / image_features.norm(dim=-1, keepdim=True)
+                    text_features = text_features / text_features.norm(dim=-1, keepdim=True)
+
+                    similarity = (100.0 * image_features @ text_features.T).softmax(dim=-1)
+                    values, indices = similarity[0].topk(min(5, len(attributes)))
+
+                    for value, idx in zip(values, indices):
+                        category_results.append((attributes[idx], value.item()))
+
+                # Agreguj wyniki
+                counter = Counter()
+                for attr, score in category_results:
+                    counter[attr] += score
+                total = sum(counter.values())
+                final_results = [(attr, (score / total) * 100) for attr, score in counter.most_common(5)]
+                results[category] = final_results
+
+        return results
 
     def generate_comprehensive_report(self, image_path):
         """Generuje kompletny raport"""
@@ -626,7 +714,13 @@ class SimpleInteriorAnalyzer:
 
     def _technical_analysis(self, image_path):
         try:
-            image = Image.open(image_path)
+            if image_path.startswith('http'):
+                image = URLImageLoader.load_image_from_url(image_path)
+                if image is None:
+                    return
+            else:
+                image = Image.open(image_path)
+
             img_array = np.array(image)
 
             hsv_img = image.convert('HSV')
@@ -644,6 +738,53 @@ class SimpleInteriorAnalyzer:
             print(f"\nBłąd podczas analizy technicznej: {e}")
 
 
+def analyze_images_from_csv(csv_path, use_lora=False, lora_weights_path=None, max_images=None):
+    """Analizuje wszystkie obrazy z pliku CSV"""
+    print(f"Ładowanie URL-i obrazów z {csv_path}...")
+    images_data = URLImageLoader.load_images_from_csv(csv_path, max_images)
+
+    if not images_data:
+        print("Nie udało się załadować żadnych URL-i obrazów.")
+        return
+
+    if use_lora:
+        print("ANALIZA Z WYTRENOWANYM MODELEM LoRA...")
+        analyzer = SimpleInteriorAnalyzer(use_lora=True, lora_weights_path=lora_weights_path)
+    else:
+        print("ANALIZA Z STANDARDOWYM MODELEM CLIP...")
+        analyzer = SimpleInteriorAnalyzer(use_lora=False)
+
+    results = {}
+
+    for i, image_data in enumerate(images_data):
+        print(f"\n{'=' * 80}")
+        print(f"ANALIZA OBRAZU {i + 1}/{len(images_data)}")
+        print(f"Offer ID: {image_data['offer_id']}, Seq: {image_data['seq']}")
+        print(f"URL: {image_data['url']}")
+        print(f"{'=' * 80}")
+
+        try:
+            image_result = analyzer.analyze_image(image_data['url'])
+            results[f"{image_data['offer_id']}_{image_data['seq']}"] = {
+                'url': image_data['url'],
+                'analysis': image_result
+            }
+        except Exception as e:
+            print(f"Błąd podczas analizy obrazu {image_data['url']}: {e}")
+            results[f"{image_data['offer_id']}_{image_data['seq']}"] = {
+                'url': image_data['url'],
+                'error': str(e)
+            }
+
+    # Zapisz wyniki do pliku
+    output_file = f"analysis_results_{len(images_data)}_images.json"
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(results, f, ensure_ascii=False, indent=2)
+
+    print(f"\nWyniki zapisano do: {output_file}")
+    return results
+
+
 # GŁÓWNE UŻYCIE
 if __name__ == "__main__":
     import argparse
@@ -651,8 +792,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Analiza stylów wnętrz')
     parser.add_argument('--train', action='store_true', help='Przeprowadź trening LoRA')
     parser.add_argument('--analyze', type=str, help='Ścieżka do obrazu do analizy')
+    parser.add_argument('--analyze-csv', type=str, help='Ścieżka do pliku CSV z URL-ami obrazów')
     parser.add_argument('--use-lora', action='store_true', help='Użyj wytrenowanego modelu LoRA')
-    parser.add_argument('--lora-weights', type=str, default='lora_models\comprehensive_lora.pth', help='Ścieżka do wag LoRA')
+    parser.add_argument('--lora-weights', type=str, default='lora_models/comprehensive_lora.pth',
+                        help='Ścieżka do wag LoRA')
+    parser.add_argument('--max-images', type=int, help='Maksymalna liczba obrazów do analizy z CSV')
 
     args = parser.parse_args()
 
@@ -667,14 +811,28 @@ if __name__ == "__main__":
             save_path=args.lora_weights
         )
 
+    elif args.analyze_csv:
+        # ANALIZA WSZYSTKICH OBRAZÓW Z CSV
+        analyze_images_from_csv(
+            csv_path=args.analyze_csv,
+            use_lora=args.use_lora,
+            lora_weights_path=args.lora_weights,
+            max_images=args.max_images
+        )
+
     elif args.analyze:
-        # ANALIZA OBRAZU
+        # ANALIZA POJEDYNCZEGO OBRAZU
         if args.use_lora:
             print("ANALIZA Z WYTRENOWANYM MODELEM LoRA...")
             analyzer = SimpleInteriorAnalyzer(use_lora=True, lora_weights_path=args.lora_weights)
         else:
             print("ANALIZA Z STANDARDOWYM MODELEM CLIP...")
             analyzer = SimpleInteriorAnalyzer(use_lora=False)
+
+        if args.analyze.startswith('http'):
+            print(f"Analizowanie obrazu z URL: {args.analyze}")
+        else:
+            print(f"Analizowanie obrazu: {args.analyze}")
 
         results = analyzer.analyze_image(args.analyze)
 
@@ -684,3 +842,5 @@ if __name__ == "__main__":
         print("python main.py --train  # Trening modelu")
         print("python main.py --analyze obraz.jpg --use-lora  # Analiza z LoRA")
         print("python main.py --analyze obraz.jpg  # Analiza bez LoRA")
+        print("python main.py --analyze-csv photos.csv --use-lora  # Analiza wszystkich obrazów z CSV")
+        print("python main.py --analyze-csv photos.csv --max-images 10  # Analiza tylko 10 obrazów z CSV")

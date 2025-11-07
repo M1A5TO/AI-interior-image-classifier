@@ -1,0 +1,72 @@
+{
+  "4ySub_0": {
+    "room_types": ["kuchnia"],
+    "styles": ["współczesny","nowoczesny"],
+    "characteristics": ["przestronny", "jasny", "czysty"],
+    "materials": ["drewno jesionowe", "cegła", "metal"],
+    "colors": ["biały", "szary", "brązowy","srebrny"]
+  },
+  "4ySub_1": {
+    "room_types": ["salon","jadalnia","sypialnia","pokój biurowy"],
+    "styles": ["nowoczesny", "współczesny"],
+    "characteristics": ["przestronny"],
+    "materials": ["drewno"],
+    "colors": ["brązowy", "biały", "szary"]
+  },
+  "4ySub_2": {
+    "room_types": ["łazienka"],
+    "styles": ["nowoczesny"],
+    "characteristics": ["czysty"],
+    "materials": ["ceramika", "szkło", "stal chromowana"],
+    "colors": ["czarny", "biały", "szary"]
+  },
+  "4xTqb_0": {
+    "room_types": ["kuchnia"],
+    "styles": ["nowoczesny", "współczesny"],
+    "characteristics": ["czysty", "elegancki", "przestronny"],
+    "materials": ["płytki", "szkło", "chrom","drewno"],
+    "colors": ["biały", "szary", "jasnobrązowy","czarny"]
+  },
+  "4xTqb_1": {
+    "room_types": ["gabinet", "biuro"],
+    "styles": ["nowoczesny", "klasyczny"],
+    "characteristics": ["funkcjonalny", "profesjonalny", "uporządkowany"],
+    "materials": ["drewno", "szkło", "metal"],
+    "colors": ["brązowy", "czarny", "złoty"]
+  },
+  "4xTqb_2": {
+    "room_types": ["przedpokój", "hol"],
+    "styles": ["nowoczesny","współczesny"],
+    "characteristics": ["funkcjonalny", "wąski"],
+    "materials": ["drewno", "lustro", "metal","szkło"],
+    "colors": ["szary", "czarny", "biały","beżowy","jasnobrązowy"]
+  },
+  "4xJKe_0": {
+    "room_types": ["salon"],
+    "styles": ["klasyczny", "tradycyjny"],
+    "characteristics": ["elegancki", "przestronny", "wytworny"],
+    "materials": ["drewno", "tekstylia", "szkło"],
+    "colors": ["jasnobrązowy", "brązowy", "kremowy"]
+  },
+  "4xJKe_1": {
+    "room_types": ["kuchnia"],
+    "styles": ["wiejski", "rustykalny"],
+    "characteristics": ["przytulny", "tradycyjny", "ciepły"],
+    "materials": ["drewno", "kamień", "ceramika"],
+    "colors": ["brązowy", "pomarańczowy", "kremowy"]
+  },
+  "4yK8Z_0": {
+    "room_types": ["balkon"],
+    "styles": ["skandynawski", "minimalistyczny"],
+    "characteristics": ["jasny", "przestronny", "relaksujący"],
+    "materials": ["drewno", "szkło", "rośliny doniczkowe","stal chromowana"],
+    "colors": ["biały", "jasnobrązowy", "srebrny"]
+  },
+  "4vR6I_0": {
+    "room_types": ["salon","jadalnia"],
+    "styles": ["industrialny", "współczesny"],
+    "characteristics": ["surowy", "przestronny"],
+    "materials": ["drewno", "tekstylia", "szkło"],
+    "colors": ["szary","brązowy","biały"]
+  }
+}
