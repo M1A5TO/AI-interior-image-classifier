@@ -10,3 +10,6 @@ tqdm
 matplotlib
 seaborn
 scikit-learn
+requests>=2.25.0
+pandas>=1.3.0
+argparse
