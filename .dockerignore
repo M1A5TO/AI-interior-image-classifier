@@ -17,10 +17,12 @@ coverage.xml
 .git
 .mypy_cache
 .pytest_cache
-.history
+.hypothesis
 .DS_Store
 *.db
 *.sqlite3
-*.weights
-*.h5
-*.keras
+*.csv
+*.json
+output/
+models/
+lora_models/

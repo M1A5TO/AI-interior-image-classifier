@@ -3,39 +3,33 @@ version: '3.8'
 services:
   interior-analyzer:
     build: .
-    container_name: interior-style-analyzer
-    working_dir: /app
-
-    # Mapowanie wolumenów dla danych, modeli i wyników
+    container_name: interior-image-analyzer
     volumes:
-      - ./lora_models:/app/lora_models
-      - ./data:/app/data
-      - ./interior_dataset.json:/app/interior_dataset.json
-      - ./test_images:/app/test_images
-
-    # Zmienne środowiskowe
+      - ./data:/app/data:ro
+      - ./output:/app/output
+      - ./cache:/root/.cache
     environment:
       - PYTHONUNBUFFERED=1
-      - CUDA_VISIBLE_DEVICES=0  # Dla GPU, usuń jeśli używasz CPU
-
-    # Tryb interaktywny
-    stdin_open: true
-    tty: true
-
-    # Polecenie domyślne
-    command: python main_v2.py --help
-
-  # Opcjonalny serwis Jupyter dla eksperymentów
-  jupyter:
-    build: .
-    container_name: interior-jupyter
     working_dir: /app
-    ports:
-      - "8888:8888"
+    command: >
+      python main.py --analyze-csv /app/data/photos.csv
+      --batch-size 8
+      --confidence-threshold 0.3
+
+  interior-analyzer-lora:
+    build: .
+    container_name: interior-analyzer-lora
     volumes:
-      - ./lora_models:/app/lora_models
-      - ./data:/app/data
-      - ./notebooks:/app/notebooks
-    command: jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=''
-    profiles:
-      - dev
+      - ./data:/app/data:ro
+      - ./output:/app/output
+      - ./cache:/root/.cache
+      - ./lora_models:/app/lora_models:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+    working_dir: /app
+    command: >
+      python main.py --analyze-csv /app/data/photos.csv
+      --use-lora
+      --lora-weights /app/lora_models/comprehensive_lora.pth
+      --batch-size 8
+      --confidence-threshold 0.3
