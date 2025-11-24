@@ -1,35 +1,38 @@
-version: '3.8'
+version: '3.9'
 
 services:
-  interior-analyzer:
-    build: .
-    container_name: interior-image-analyzer
-    volumes:
-      - ./data:/app/data:ro
-      - ./output:/app/output
-      - ./cache:/root/.cache
-    environment:
-      - PYTHONUNBUFFERED=1
-    working_dir: /app
-    command: >
-      python main.py --analyze-csv /app/data/photos.csv
-      --batch-size 8
-      --confidence-threshold 0.3
 
-  interior-analyzer-lora:
-    build: .
-    container_name: interior-analyzer-lora
-    volumes:
-      - ./data:/app/data:ro
-      - ./output:/app/output
-      - ./cache:/root/.cache
-      - ./lora_models:/app/lora_models:ro
+  mongo:
+    image: mongo:6
+    container_name: mongo
+    restart: always
     environment:
-      - PYTHONUNBUFFERED=1
-    working_dir: /app
-    command: >
-      python main.py --analyze-csv /app/data/photos.csv
-      --use-lora
-      --lora-weights /app/lora_models/comprehensive_lora.pth
-      --batch-size 8
-      --confidence-threshold 0.3
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  api:
+    build: ./api-server
+    container_name: node-api
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URI: mongodb://mongo:27017
+    depends_on:
+      - mongo
+
+  worker:
+    build: ./python-worker
+    container_name: python-worker
+    restart: always
+    environment:
+      MONGO_URI: mongodb://mongo:27017
+    depends_on:
+      - mongo
+
+volumes:
+  mongo_data:
