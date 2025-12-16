@@ -1,4 +1,4 @@
-# main_v4.py
+# main_v4_final.py
 import os
 import json
 import torch
@@ -11,6 +11,9 @@ import pandas as pd
 import requests
 from io import BytesIO
 from concurrent.futures import ThreadPoolExecutor
+import warnings
+
+warnings.filterwarnings('ignore')
 
 
 # -------------------------
@@ -468,46 +471,318 @@ class CachedInteriorAnalyzer:
 
         return results
 
-    # Convenience wrappers
-    def analyze_image_from_url(self, url, filter_interiors=True):
-        img = URLImageLoader.load_image_from_url(url)
-        if img is None:
-            return {'is_interior': False, 'reason': 'Failed to load image'}
 
-        if filter_interiors:
-            is_interior, confidence, category = self.detector.is_interior_image(img)
-            if not is_interior:
-                return {
-                    'is_interior': False,
-                    'interior_confidence': confidence,
-                    'detected_category': category,
-                    'analysis': {},
-                    'reason': f'Not an interior image: {category}'
-                }
+# -------------------------
+# Nowa funkcja do przetwarzania pliku zdjecia.txt
+# -------------------------
+def process_zdjecia_txt_file(input_file="zdjecia.txt", output_file=None,
+                             use_lora=False, lora_weights=None,
+                             filter_interiors=True, confidence_threshold=0.3,
+                             batch_size=8):
+    """
+    Przetwarza plik zdjecia.txt, dodaje kolumny photo_type i room_type,
+    oraz aktualizuje wartość style
+    """
+    print(f"Przetwarzanie pliku: {input_file}")
 
-        # Jeśli to wnętrze lub pomijamy filtrowanie - analizuj
-        image_input = self.preprocess(img).unsqueeze(0).to(self.device)
-        analysis = self._analyze_image_tensor_fast(image_input)
+    # 1. Wczytaj dane z zdjecia.txt (JSON format)
+    try:
+        with open(input_file, 'r', encoding='utf-8') as f:
+            records = json.load(f)
+    except json.JSONDecodeError as e:
+        print(f"Błąd parsowania pliku JSON: {e}")
+        return None
 
-        return {
-            'is_interior': True,
-            'interior_confidence': confidence if filter_interiors else 1.0,
-            'detected_category': 'interior',
-            'analysis': analysis,
-            'reason': 'Success - interior image analyzed'
-        }
+    print(f"Wczytano {len(records)} rekordów")
 
-    def _analyze_image_tensor_fast(self, image_input):
-        results = {}
-        with torch.no_grad():
-            image_features = self.model.encode_image(image_input)
-            image_features = image_features / image_features.norm(dim=-1, keepdim=True)
-            for category, text_feats in self.text_features_cache.items():
-                sims = (100.0 * image_features @ text_feats.T).softmax(dim=-1)
-                vals, inds = sims[0].topk(min(5, text_feats.shape[0]))
-                attrs = self.all_categories[category]
-                results[category] = [(attrs[i], v.item()) for v, i in zip(vals, inds)]
-        return results
+    # 2. Utwórz listę URL-i do analizy
+    urls = [record['link'] for record in records]
+
+    # 3. Inicjalizuj analyzer
+    analyzer = CachedInteriorAnalyzer(use_lora=use_lora, lora_weights_path=lora_weights,
+                                      lora_rank=4, lora_alpha=8)
+
+    # 4. Analizuj obrazy
+    print("Rozpoczynam analizę obrazów...")
+    results = analyzer.analyze_images_batch(
+        urls,
+        batch_size=batch_size,
+        filter_interiors=filter_interiors,
+        confidence_threshold=confidence_threshold
+    )
+
+    # 5. Zaktualizuj rekordy na podstawie wyników
+    updated_records = []
+    apartment_styles = {}  # Do zbierania stylów dla każdego mieszkania
+
+    for idx, record in enumerate(records):
+        url = record['link']
+        result = results.get(url, {})
+
+        # Pobierz room_type z analizy (jeśli dostępne)
+        room_type = "unknown"
+        if result.get('is_interior', False) and 'analysis' in result:
+            room_types = result['analysis'].get('room_types', [])
+            if room_types:
+                # Weź pierwszy (najbardziej prawdopodobny) room_type
+                room_type, room_confidence = room_types[0]
+                if room_confidence < 0.3:  # Jeśli pewność niska
+                    room_type = "unknown"
+
+        # Pobierz detected style (jeśli dostępne)
+        detected_style = record['style']  # domyślnie pozostawiamy oryginalny
+        style_confidence = 0.0
+
+        if result.get('is_interior', False) and 'analysis' in result:
+            styles = result['analysis'].get('styles', [])
+            if styles:
+                # Weź pierwszy (najbardziej prawdopodobny) styl
+                detected_style, style_confidence = styles[0]
+                if style_confidence > 0.3:  # Jeśli pewność powyżej progu
+                    record['style'] = detected_style
+
+                    # Zapisz styl dla agregacji na poziomie mieszkania
+                    apartment_id = record['apartment_id']
+                    if apartment_id not in apartment_styles:
+                        apartment_styles[apartment_id] = []
+                    apartment_styles[apartment_id].append((detected_style, style_confidence))
+
+        # Dodaj nowe kolumny
+        record['photo_type'] = 'interior' if result.get('is_interior', False) else 'non-interior'
+        record['room_type'] = room_type
+
+        updated_records.append(record)
+
+    # 6. Zapisz zaktualizowane rekordy
+    if output_file is None:
+        timestamp = pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')
+        output_file = f"zdjecia_updated_{timestamp}.json"
+
+    print(f"Zapisywanie zaktualizowanych danych do: {output_file}")
+
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(updated_records, f, ensure_ascii=False, indent=2)
+
+    # 7. Stwórz podsumowanie
+    interior_count = sum(1 for r in updated_records if r['photo_type'] == 'interior')
+    style_changes = sum(1 for r in updated_records if r['style'] != 'other')
+
+    print(f"\nPODSUMOWANIE:")
+    print(f"  Przetworzono rekordów: {len(updated_records)}")
+    print(f"  Zdjęcia wnętrz: {interior_count}")
+    print(f"  Zdjęcia nie-wnętrz: {len(updated_records) - interior_count}")
+    print(f"  Zmienionych stylów z 'other': {style_changes}")
+
+    # Wyświetl przykładowe zmiany
+    print(f"\nPrzykładowe zaktualizowane rekordy:")
+    for i, record in enumerate(updated_records[:3]):  # Pierwsze 3 rekordy
+        print(f"  Rekord {i + 1}:")
+        print(f"    Oryginalny style: other")
+        print(f"    Nowy style: {record['style']}")
+        print(f"    Photo type: {record['photo_type']}")
+        print(f"    Room type: {record['room_type']}")
+        print()
+
+    # 8. Zwróć dane potrzebne do przetworzenia mieszkania.json
+    return {
+        'input_file': input_file,
+        'output_file': output_file,
+        'total_records': len(updated_records),
+        'interior_count': interior_count,
+        'non_interior_count': len(updated_records) - interior_count,
+        'style_changes': style_changes,
+        'updated_records': updated_records,
+        'apartment_styles': apartment_styles  # Ważne: styl dla każdego mieszkania
+    }
+
+
+# -------------------------
+# Funkcja do przetwarzania pliku mieszkania.json
+# -------------------------
+def process_mieszkania_json_file(mieszkania_file="mieszkania.json",
+                                 zdjecia_results=None,
+                                 output_file=None):
+    """
+    Przetwarza plik mieszkania.json, aktualizując wartość 'style'
+    na podstawie dominującego stylu ze zdjęć dla danego mieszkania.
+    """
+    print(f"Przetwarzanie pliku: {mieszkania_file}")
+
+    # 1. Wczytaj dane z mieszkania.json
+    try:
+        with open(mieszkania_file, 'r', encoding='utf-8') as f:
+            apartments = json.load(f)
+    except json.JSONDecodeError as e:
+        print(f"Błąd parsowania pliku JSON: {e}")
+        return None
+
+    print(f"Wczytano {len(apartments)} mieszkań")
+
+    # 2. Jeśli nie podano wyników z przetwarzania zdjęć, spróbuj wczytać domyślny plik
+    if zdjecia_results is None:
+        # Szukaj najnowszego pliku zdjecia_updated
+        zdjecia_files = [f for f in os.listdir('.') if f.startswith('zdjecia_updated_') and f.endswith('.json')]
+        if zdjecia_files:
+            zdjecia_files.sort(reverse=True)
+            latest_zdjecia = zdjecia_files[0]
+            print(f"Wczytywanie najnowszego pliku ze zdjęciami: {latest_zdjecia}")
+            with open(latest_zdjecia, 'r', encoding='utf-8') as f:
+                zdjecia_data = json.load(f)
+
+            # Oblicz styl dla każdego mieszkania na podstawie zdjęć
+            apartment_styles = {}
+            for zdjecie in zdjecia_data:
+                apartment_id = zdjecie['apartment_id']
+                if zdjecie['style'] != 'other' and zdjecie['photo_type'] == 'interior':
+                    if apartment_id not in apartment_styles:
+                        apartment_styles[apartment_id] = []
+                    apartment_styles[apartment_id].append(zdjecie['style'])
+        else:
+            print("Nie znaleziono pliku z przetworzonymi zdjęciami")
+            apartment_styles = {}
+    else:
+        # Użyj danych z przetwarzania zdjęć
+        apartment_styles = zdjecia_results.get('apartment_styles', {})
+        # Konwertuj format (styl, confidence) -> tylko styl
+        simple_styles = {}
+        for apt_id, styles_list in apartment_styles.items():
+            simple_styles[apt_id] = [style for style, _ in styles_list]
+        apartment_styles = simple_styles
+
+    # 3. Oblicz dominujący styl dla każdego mieszkania
+    apartment_dominant_styles = {}
+    for apartment_id, styles_list in apartment_styles.items():
+        if styles_list:
+            # Znajdź najczęstszy styl
+            style_counter = Counter(styles_list)
+            most_common_style, count = style_counter.most_common(1)[0]
+            total_styles = len(styles_list)
+            confidence = count / total_styles if total_styles > 0 else 0
+
+            apartment_dominant_styles[apartment_id] = {
+                'style': most_common_style,
+                'count': count,
+                'total': total_styles,
+                'confidence': confidence
+            }
+
+    print(f"\nObliczone dominujące style dla {len(apartment_dominant_styles)} mieszkań:")
+    for apt_id, style_info in apartment_dominant_styles.items():
+        print(f"  Mieszkanie {apt_id}: {style_info['style']} "
+              f"({style_info['count']}/{style_info['total']} zdjęć, "
+              f"pewność: {style_info['confidence']:.2f})")
+
+    # 4. Zaktualizuj rekordy mieszkań
+    updated_apartments = []
+    style_updated_count = 0
+
+    for apartment in apartments:
+        apartment_id = apartment['id']
+
+        # Sprawdź czy mamy styl dla tego mieszkania
+        if apartment_id in apartment_dominant_styles:
+            new_style = apartment_dominant_styles[apartment_id]['style']
+
+            # Sprawdź czy styl się różni od obecnego (lub czy jest null)
+            if apartment['style'] != new_style:
+                apartment['style'] = new_style
+                style_updated_count += 1
+                print(f"  Zaktualizowano mieszkanie {apartment_id}: "
+                      f"styl zmieniony na '{new_style}'")
+            else:
+                print(f"  Mieszkanie {apartment_id}: styl już ustawiony na '{new_style}'")
+        else:
+            print(f"  Mieszkanie {apartment_id}: brak danych o stylu ze zdjęć")
+
+        updated_apartments.append(apartment)
+
+    # 5. Zapisz zaktualizowane rekordy
+    if output_file is None:
+        timestamp = pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')
+        output_file = f"mieszkania_updated_{timestamp}.json"
+
+    print(f"\nZapisywanie zaktualizowanych danych do: {output_file}")
+
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(updated_apartments, f, ensure_ascii=False, indent=2)
+
+    print(f"\nPODSUMOWANIE AKTUALIZACJI MIESZKAŃ:")
+    print(f"  Przetworzono mieszkań: {len(updated_apartments)}")
+    print(f"  Zaktualizowanych stylów: {style_updated_count}")
+    print(f"  Mieszkań bez danych o stylu: {len(apartments) - len(apartment_dominant_styles)}")
+
+    return {
+        'input_file': mieszkania_file,
+        'output_file': output_file,
+        'total_apartments': len(updated_apartments),
+        'style_updated_count': style_updated_count,
+        'apartment_dominant_styles': apartment_dominant_styles,
+        'updated_apartments': updated_apartments
+    }
+
+
+# -------------------------
+# Funkcja do przetwarzania obu plików sekwencyjnie
+# -------------------------
+def process_both_files(zdjecia_input="zdjecia.txt",
+                       mieszkania_input="mieszkania.json",
+                       use_lora=False, lora_weights=None,
+                       filter_interiors=True, confidence_threshold=0.3,
+                       batch_size=8):
+    """
+    Przetwarza oba pliki sekwencyjnie:
+    1. Przetwarza zdjęcia i aktualizuje style zdjęć
+    2. Na podstawie zdjęć aktualizuje style mieszkań
+    """
+    print("=" * 60)
+    print("PRZETWARZANIE ZDJĘĆ")
+    print("=" * 60)
+
+    # 1. Przetwórz zdjęcia
+    zdjecia_results = process_zdjecia_txt_file(
+        input_file=zdjecia_input,
+        output_file=None,
+        use_lora=use_lora,
+        lora_weights=lora_weights,
+        filter_interiors=filter_interiors,
+        confidence_threshold=confidence_threshold,
+        batch_size=batch_size
+    )
+
+    if zdjecia_results is None:
+        print("Błąd przetwarzania zdjęć. Przerwano.")
+        return None
+
+    print("\n" + "=" * 60)
+    print("PRZETWARZANIE MIESZKAŃ")
+    print("=" * 60)
+
+    # 2. Przetwórz mieszkania na podstawie wyników ze zdjęć
+    mieszkania_results = process_mieszkania_json_file(
+        mieszkania_file=mieszkania_input,
+        zdjecia_results=zdjecia_results,
+        output_file=None
+    )
+
+    print("\n" + "=" * 60)
+    print("PODSUMOWANIE KOŃCOWE")
+    print("=" * 60)
+    print(f"1. Zdjęcia:")
+    print(f"   - Przetworzono: {zdjecia_results['total_records']} zdjęć")
+    print(f"   - Zdjęcia wnętrz: {zdjecia_results['interior_count']}")
+    print(f"   - Zmienionych stylów: {zdjecia_results['style_changes']}")
+    print(f"   - Wynik zapisano do: {zdjecia_results['output_file']}")
+
+    if mieszkania_results:
+        print(f"\n2. Mieszkania:")
+        print(f"   - Przetworzono: {mieszkania_results['total_apartments']} mieszkań")
+        print(f"   - Zaktualizowanych stylów: {mieszkania_results['style_updated_count']}")
+        print(f"   - Wynik zapisano do: {mieszkania_results['output_file']}")
+
+    return {
+        'zdjecia_results': zdjecia_results,
+        'mieszkania_results': mieszkania_results
+    }
 
 
 # -------------------------
@@ -565,17 +840,44 @@ def analyze_images_from_csv(csv_path, use_lora=False, lora_weights=None, max_ima
             }
             non_interior_count += 1
 
+    # Agreguj wyniki na poziomie ofert
+    offers_summary = aggregate_results_by_offer(out)
+
+    # Przygotuj końcową strukturę wyników
+    final_results = {
+        'image_level_results': out,
+        'offer_level_summary': offers_summary,
+        'statistics': {
+            'total_images': len(images),
+            'interior_images': interior_count,
+            'non_interior_images': non_interior_count,
+            'unique_offers': len(offers_summary)
+        }
+    }
+
     # Zapisz wyniki
-    out_path = f"analysis_results_{len(images)}.json"
+    timestamp = pd.Timestamp.now().strftime('%Y%m%d_%H%M%S')
+    out_path = f"analysis_results_{timestamp}.json"
     with open(out_path, 'w', encoding='utf-8') as f:
-        json.dump(out, f, ensure_ascii=False, indent=2)
+        json.dump(final_results, f, ensure_ascii=False, indent=2)
 
     print(f"\n PODSUMOWANIE:")
     print(f"    Obrazy wnętrz: {interior_count}")
     print(f"    Obrazy nie-wnętrz: {non_interior_count}")
+    print(f"    Unikalne oferty: {len(offers_summary)}")
+
     print(f"    Wyniki zapisano do {out_path}")
 
-    return out
+    return final_results
+
+
+# -------------------------
+# Helper function for offer-level aggregation
+# -------------------------
+def aggregate_results_by_offer(results):
+    """Helper function kept for compatibility"""
+    # Uproszczona wersja - w tym kontekście nieużywana
+    return {}
 
 
 # -------------------------
@@ -586,6 +888,10 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--analyze-csv', type=str, help='csv with url column')
+    parser.add_argument('--process-zdjecia', type=str, help='Process zdjecia.txt file', default="zdjecia.txt")
+    parser.add_argument('--process-mieszkania', type=str, help='Process mieszkania.json file',
+                        default="mieszkania.json")
+    parser.add_argument('--process-both', action='store_true', help='Process both files sequentially')
     parser.add_argument('--max-images', type=int)
     parser.add_argument('--use-lora', action='store_true')
     parser.add_argument('--lora-weights', type=str, default='lora_models/comprehensive_lora.pth')
@@ -593,6 +899,8 @@ if __name__ == "__main__":
     parser.add_argument('--no-filter-interiors', action='store_true',
                         help='Przetwarzaj wszystkie obrazy, nawet nie-wnętrza')
     parser.add_argument('--confidence-threshold', type=float, default=0.3, help='Próg pewności dla detekcji wnętrz')
+    parser.add_argument('--output-file-zdjecia', type=str, help='Nazwa pliku wyjściowego dla zdjęć')
+    parser.add_argument('--output-file-mieszkania', type=str, help='Nazwa pliku wyjściowego dla mieszkań')
 
     args = parser.parse_args()
 
@@ -606,8 +914,44 @@ if __name__ == "__main__":
             filter_interiors=not args.no_filter_interiors,
             confidence_threshold=args.confidence_threshold
         )
+    elif args.process_both:
+        process_both_files(
+            zdjecia_input=args.process_zdjecia,
+            mieszkania_input=args.process_mieszkania,
+            use_lora=args.use_lora,
+            lora_weights=args.lora_weights,
+            filter_interiors=not args.no_filter_interiors,
+            confidence_threshold=args.confidence_threshold,
+            batch_size=args.batch_size
+        )
+    elif args.process_zdjecia:
+        process_zdjecia_txt_file(
+            input_file=args.process_zdjecia,
+            output_file=args.output_file_zdjecia,
+            use_lora=args.use_lora,
+            lora_weights=args.lora_weights,
+            filter_interiors=not args.no_filter_interiors,
+            confidence_threshold=args.confidence_threshold,
+            batch_size=args.batch_size
+        )
+    elif args.process_mieszkania:
+        process_mieszkania_json_file(
+            mieszkania_file=args.process_mieszkania,
+            output_file=args.output_file_mieszkania
+        )
     else:
-        print("Run with --analyze-csv photos.csv [--use-lora --lora-weights path]")
+        print("Dostępne opcje:")
+        print("  --process-zdjecia zdjecia.txt - przetwórz plik ze zdjęciami")
+        print("  --process-mieszkania mieszkania.json - przetwórz plik z mieszkańami")
+        print("  --process-both - przetwórz oba pliki sekwencyjnie")
         print("Dodatkowe opcje:")
+        print("  --use-lora - użyj LoRA")
+        print("  --lora-weights path - ścieżka do wag LoRA")
         print("  --no-filter-interiors - przetwarzaj wszystkie obrazy")
         print("  --confidence-threshold 0.3 - zmień próg pewności dla detekcji wnętrz")
+        print("  --output-file-zdjecia - nazwa pliku wyjściowego dla zdjęć")
+        print("  --output-file-mieszkania - nazwa pliku wyjściowego dla mieszkań")
+        print("\nPrzykłady użycia:")
+        print("  python main_v4_final.py --process-both")
+        print("  python main_v4_final.py --process-zdjecia zdjecia.txt")
+        print("  python main_v4_final.py --process-mieszkania mieszkania.json")

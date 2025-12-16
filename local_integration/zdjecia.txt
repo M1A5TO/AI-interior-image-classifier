@@ -1,0 +1,386 @@
+[
+  {
+    "apartment_id": 1,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL2Rld2Vsb3Blcnp5LzEyMDMyX3dpenVhbGl6YWNqYTEuanBnI3Y9MTc1OTkxMzg0NA==/3x2_l:fill_and_crop/mieszkanie-w-inwestycji-alfa-park-gdansk-60-m.jpg",
+    "style": "other",
+    "id": 1
+  },
+  {
+    "apartment_id": 1,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL2Rld2Vsb3Blcnp5LzEyMDMyX3dpenVhbGl6YWNqYTIuanBnI3Y9MTc1OTkxMzg0NA==/3x2_l:fill_and_crop/mieszkanie-w-inwestycji-alfa-park-gdansk-60-m.jpg",
+    "style": "other",
+    "id": 2
+  },
+  {
+    "apartment_id": 1,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL2Rld2Vsb3Blcnp5LzEyMDMyX3dpenVhbGl6YWNqYTMuanBnI3Y9MTc1OTkxMzg0NA==/3x2_l:fill_and_crop/mieszkanie-w-inwestycji-alfa-park-gdansk-60-m.jpg",
+    "style": "other",
+    "id": 3
+  },
+  {
+    "apartment_id": 1,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL2Rld2Vsb3Blcnp5LzEyMDMyX3dpenVhbGl6YWNqYTQuanBnI3Y9MTc1OTkxMzg0NA==/3x2_l:fill_and_crop/mieszkanie-w-inwestycji-alfa-park-gdansk-60-m.jpg",
+    "style": "other",
+    "id": 4
+  },
+  {
+    "apartment_id": 1,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL2Rld2Vsb3Blcnp5LzEyMDMyX3dpenVhbGl6YWNqYTUuanBnI3Y9MTc1OTkxMzg0NA==/3x2_l:fill_and_crop/mieszkanie-w-inwestycji-alfa-park-gdansk-60-m.jpg",
+    "style": "other",
+    "id": 5
+  },
+  {
+    "apartment_id": 1,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL2Rld2Vsb3Blcnp5LzEyMDMyX3dpenVhbGl6YWNqYTYuanBnI3Y9MTc1OTkxMzg0NA==/3x2_l:fill_and_crop/mieszkanie-w-inwestycji-alfa-park-gdansk-60-m.jpg",
+    "style": "other",
+    "id": 6
+  },
+  {
+    "apartment_id": 2,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEvbzY3MzE4LzkvbzY3MzE4X21zX0hFWDQyMTI3MF8xLmpwZyN2PTFfMzg3MzM1NTM3MQ==/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-72-m.jpg",
+    "style": "other",
+    "id": 7
+  },
+  {
+    "apartment_id": 2,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEvbzY3MzE4L2IvbzY3MzE4X21zX0hFWDQyMTI3MF8yLmpwZyN2PTFfMzg3MzM1NTM3Mg==/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-72-m.jpg",
+    "style": "other",
+    "id": 8
+  },
+  {
+    "apartment_id": 2,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEvbzY3MzE4LzgvbzY3MzE4X21zX0hFWDQyMTI3MF8zLmpwZyN2PTFfMzg3MzM1NTM3Mw==/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-72-m.jpg",
+    "style": "other",
+    "id": 9
+  },
+  {
+    "apartment_id": 2,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEvbzY3MzE4LzYvbzY3MzE4X21zX0hFWDQyMTI3MF80LmpwZyN2PTFfMzg3MzM1NTM3NA==/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-72-m.jpg",
+    "style": "other",
+    "id": 10
+  },
+  {
+    "apartment_id": 2,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEvbzY3MzE4LzQvbzY3MzE4X21zX0hFWDQyMTI3MF81LmpwZyN2PTFfMzg3MzM1NTM3NQ==/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-72-m.jpg",
+    "style": "other",
+    "id": 11
+  },
+  {
+    "apartment_id": 2,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEvbzY3MzE4LzgvbzY3MzE4X21zX0hFWDQyMTI3MF82LmpwZyN2PTFfMzg3MzM1NTM3Ng==/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-72-m.jpg",
+    "style": "other",
+    "id": 12
+  },
+  {
+    "apartment_id": 2,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEvbzY3MzE4LzIvbzY3MzE4X21zX0hFWDQyMTI3MF83LmpwZyN2PTFfMzg3MzM1NTM3Nw==/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-72-m.jpg",
+    "style": "other",
+    "id": 13
+  },
+  {
+    "apartment_id": 2,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEvbzY3MzE4LzAvbzY3MzE4X21zX0hFWDQyMTI3MF84LmpwZyN2PTFfMzg3MzM1NTM3OA==/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-72-m.jpg",
+    "style": "other",
+    "id": 14
+  },
+  {
+    "apartment_id": 2,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEvbzY3MzE4L2UvbzY3MzE4X21zX0hFWDQyMTI3MF85LmpwZyN2PTFfMzg3MzM1NTM3OQ==/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-72-m.jpg",
+    "style": "other",
+    "id": 15
+  },
+  {
+    "apartment_id": 2,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEvbzY3MzE4LzMvbzY3MzE4X21zX0hFWDQyMTI3MF8xMC5qcGcjdj0xXzM4NzMzNTUzODA=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-72-m.jpg",
+    "style": "other",
+    "id": 16
+  },
+  {
+    "apartment_id": 2,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEvbzY3MzE4LzkvbzY3MzE4X21zX0hFWDQyMTI3MF8xMS5qcGcjdj0xXzM4NzMzNTUzODE=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-72-m.jpg",
+    "style": "other",
+    "id": 17
+  },
+  {
+    "apartment_id": 2,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEvbzY3MzE4LzQvbzY3MzE4X21zX0hFWDQyMTI3MF8xMi5qcGcjdj0xXzM4NzMzNTUzODI=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-72-m.jpg",
+    "style": "other",
+    "id": 18
+  },
+  {
+    "apartment_id": 2,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEvbzY3MzE4L2QvbzY3MzE4X21zX0hFWDQyMTI3MF8xMy5qcGcjdj0xXzM4NzMzNTUzODM=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-72-m.jpg",
+    "style": "other",
+    "id": 19
+  },
+  {
+    "apartment_id": 2,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEvbzY3MzE4LzUvbzY3MzE4X21zX0hFWDQyMTI3MF8xNC5qcGcjdj0xXzM4NzMzNTUzODQ=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-72-m.jpg",
+    "style": "other",
+    "id": 20
+  },
+  {
+    "apartment_id": 2,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEvbzY3MzE4L2YvbzY3MzE4X21zX0hFWDQyMTI3MF8xNS5qcGcjdj0xXzM4NzMzNTUzODU=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-72-m.jpg",
+    "style": "other",
+    "id": 21
+  },
+  {
+    "apartment_id": 2,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEvbzY3MzE4LzMvbzY3MzE4X21zX0hFWDQyMTI3MF8xNi5qcGcjdj0xXzM4NzMzNTUzODY=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-72-m.jpg",
+    "style": "other",
+    "id": 22
+  },
+  {
+    "apartment_id": 2,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEvbzY3MzE4LzQvbzY3MzE4X21zX0hFWDQyMTI3MF8xNy5qcGcjdj0xXzM4NzMzNTUzODc=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-72-m.jpg",
+    "style": "other",
+    "id": 23
+  },
+  {
+    "apartment_id": 2,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEvbzY3MzE4L2IvbzY3MzE4X21zX0hFWDQyMTI3MF8xOC5qcGcjdj0xXzM4NzMzNTUzODg=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-72-m.jpg",
+    "style": "other",
+    "id": 24
+  },
+  {
+    "apartment_id": 3,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL2Rld2Vsb3Blcnp5LzEyMTA4X3dpenVhbGl6YWNqYTEuanBnI3Y9MTc2NDU5ODkzMg==/3x2_l:fill_and_crop/mieszkanie-w-inwestycji-iii-etap-inwestycji-quercus-budynek-c-gdansk-71-m.jpg",
+    "style": "other",
+    "id": 25
+  },
+  {
+    "apartment_id": 3,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL2Rld2Vsb3Blcnp5LzEyMTA4X3dpenVhbGl6YWNqYTIuanBnI3Y9MTc2NDU5ODkzMg==/3x2_l:fill_and_crop/mieszkanie-w-inwestycji-iii-etap-inwestycji-quercus-budynek-c-gdansk-71-m.jpg",
+    "style": "other",
+    "id": 26
+  },
+  {
+    "apartment_id": 3,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL2Rld2Vsb3Blcnp5LzEyMTA4X3dpenVhbGl6YWNqYTMuanBnI3Y9MTc2NDU5ODkzMg==/3x2_l:fill_and_crop/mieszkanie-w-inwestycji-iii-etap-inwestycji-quercus-budynek-c-gdansk-71-m.jpg",
+    "style": "other",
+    "id": 27
+  },
+  {
+    "apartment_id": 3,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL2Rld2Vsb3Blcnp5LzEyMTA4X3dpenVhbGl6YWNqYTQuanBnI3Y9MTc2NDU5ODkzMg==/3x2_l:fill_and_crop/mieszkanie-w-inwestycji-iii-etap-inwestycji-quercus-budynek-c-gdansk-71-m.jpg",
+    "style": "other",
+    "id": 28
+  },
+  {
+    "apartment_id": 3,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL2Rld2Vsb3Blcnp5LzEyMTA4X3dpenVhbGl6YWNqYTUuanBnI3Y9MTc2NDU5ODkzMg==/3x2_l:fill_and_crop/mieszkanie-w-inwestycji-iii-etap-inwestycji-quercus-budynek-c-gdansk-71-m.jpg",
+    "style": "other",
+    "id": 29
+  },
+  {
+    "apartment_id": 3,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL2Rld2Vsb3Blcnp5LzEyMTA4X3dpenVhbGl6YWNqYTYuanBnI3Y9MTc2NDU5ODkzMg==/3x2_l:fill_and_crop/mieszkanie-w-inwestycji-iii-etap-inwestycji-quercus-budynek-c-gdansk-71-m.jpg",
+    "style": "other",
+    "id": 30
+  },
+  {
+    "apartment_id": 3,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL2Rld2Vsb3Blcnp5LzEyMTA4X3dpenVhbGl6YWNqYTcuanBnI3Y9MTc2NDU5ODkzMg==/3x2_l:fill_and_crop/mieszkanie-w-inwestycji-iii-etap-inwestycji-quercus-budynek-c-gdansk-71-m.jpg",
+    "style": "other",
+    "id": 31
+  },
+  {
+    "apartment_id": 3,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL2Rld2Vsb3Blcnp5LzEyMTA4X3dpenVhbGl6YWNqYTguanBnI3Y9MTc2NDU5ODkzMg==/3x2_l:fill_and_crop/mieszkanie-w-inwestycji-iii-etap-inwestycji-quercus-budynek-c-gdansk-71-m.jpg",
+    "style": "other",
+    "id": 32
+  },
+  {
+    "apartment_id": 3,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL2Rld2Vsb3Blcnp5LzEyMTA4X3dpenVhbGl6YWNqYTkuanBnI3Y9MTc2NDU5ODkzMg==/3x2_l:fill_and_crop/mieszkanie-w-inwestycji-iii-etap-inwestycji-quercus-budynek-c-gdansk-71-m.jpg",
+    "style": "other",
+    "id": 33
+  },
+  {
+    "apartment_id": 3,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL2Rld2Vsb3Blcnp5LzEyMTA4X3dpenVhbGl6YWNqYTEwLmpwZyN2PTE3NjQ1OTg5MzI=/3x2_l:fill_and_crop/mieszkanie-w-inwestycji-iii-etap-inwestycji-quercus-budynek-c-gdansk-71-m.jpg",
+    "style": "other",
+    "id": 34
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi8zL3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfMS5qcGcjdj0xXzM4NzQzMDg2OTk=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 35
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi82L3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfMi5qcGcjdj0xXzM4NzQzMDg3MDA=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 36
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi9jL3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfMy5qcGcjdj0xXzM4NzQzMDg3MDE=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 37
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi9kL3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfNC5qcGcjdj0xXzM4NzQzMDg3MDI=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 38
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi9hL3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfNS5qcGcjdj0xXzM4NzQzMDg3MDM=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 39
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi9jL3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfNi5qcGcjdj0xXzM4NzQzMDg3MDQ=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 40
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi85L3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfNy5qcGcjdj0xXzM4NzQzMDg3MDU=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 41
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi80L3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfOC5qcGcjdj0xXzM4NzQzMDg3MDY=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 42
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi9iL3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfOS5qcGcjdj0xXzM4NzQzMDg3MDc=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 43
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi9kL3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfMTAuanBnI3Y9MV8zODc0MzA4NzA4/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 44
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi84L3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfMTEuanBnI3Y9MV8zODc0MzA4NzA5/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 45
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi9hL3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfMTIuanBnI3Y9MV8zODc0MzA4NzEw/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 46
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi9hL3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfMTMuanBnI3Y9MV8zODc0MzA4NzEx/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 47
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi9lL3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfMTQuanBnI3Y9MV8zODc0MzA4NzEy/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 48
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi84L3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfMTUuanBnI3Y9MV8zODc0MzA4NzEz/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 49
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi9iL3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfMTYuanBnI3Y9MV8zODc0MzA4NzE0/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 50
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi8yL3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfMTcuanBnI3Y9MV8zODc0MzA4NzE1/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 51
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi84L3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfMTguanBnI3Y9MV8zODc0MzA4NzE2/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 52
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi8wL3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfMTkuanBnI3Y9MV8zODc0MzA4NzE3/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 53
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi9kL3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfMjAuanBnI3Y9MV8zODc0MzA4NzE4/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 54
+  },
+  {
+    "apartment_id": 4,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi9kL3lvdXJwb2ludDJfbXNfMTIyMDglMjUyRjE4MDgwJTI1MkZPTVNfMjEuanBnI3Y9MV8zODc0MzA4NzE5/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-oliwa-61-m.jpg",
+    "style": "other",
+    "id": 55
+  },
+  {
+    "apartment_id": 5,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi9jL3lvdXJwb2ludDJfbXNfMTIyNzElMjUyRjE4MDgwJTI1MkZPTVNfMS5qcGcjdj0xXzM4NzQyOTEzMjM=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-srodmiescie-48-m.jpg",
+    "style": "other",
+    "id": 56
+  },
+  {
+    "apartment_id": 5,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi9iL3lvdXJwb2ludDJfbXNfMTIyNzElMjUyRjE4MDgwJTI1MkZPTVNfMi5qcGcjdj0xXzM4NzQyOTEzMjQ=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-srodmiescie-48-m.jpg",
+    "style": "other",
+    "id": 57
+  },
+  {
+    "apartment_id": 5,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi8zL3lvdXJwb2ludDJfbXNfMTIyNzElMjUyRjE4MDgwJTI1MkZPTVNfMy5qcGcjdj0xXzM4NzQyOTEzMjU=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-srodmiescie-48-m.jpg",
+    "style": "other",
+    "id": 58
+  },
+  {
+    "apartment_id": 5,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi84L3lvdXJwb2ludDJfbXNfMTIyNzElMjUyRjE4MDgwJTI1MkZPTVNfNC5qcGcjdj0xXzM4NzQyOTEzMjY=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-srodmiescie-48-m.jpg",
+    "style": "other",
+    "id": 59
+  },
+  {
+    "apartment_id": 5,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi84L3lvdXJwb2ludDJfbXNfMTIyNzElMjUyRjE4MDgwJTI1MkZPTVNfNS5qcGcjdj0xXzM4NzQyOTEzMjc=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-srodmiescie-48-m.jpg",
+    "style": "other",
+    "id": 60
+  },
+  {
+    "apartment_id": 5,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi9hL3lvdXJwb2ludDJfbXNfMTIyNzElMjUyRjE4MDgwJTI1MkZPTVNfNi5qcGcjdj0xXzM4NzQyOTEzMjg=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-srodmiescie-48-m.jpg",
+    "style": "other",
+    "id": 61
+  },
+  {
+    "apartment_id": 5,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi8wL3lvdXJwb2ludDJfbXNfMTIyNzElMjUyRjE4MDgwJTI1MkZPTVNfNy5qcGcjdj0xXzM4NzQyOTEzMjk=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-srodmiescie-48-m.jpg",
+    "style": "other",
+    "id": 62
+  },
+  {
+    "apartment_id": 5,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi9iL3lvdXJwb2ludDJfbXNfMTIyNzElMjUyRjE4MDgwJTI1MkZPTVNfOC5qcGcjdj0xXzM4NzQyOTEzMzA=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-srodmiescie-48-m.jpg",
+    "style": "other",
+    "id": 63
+  },
+  {
+    "apartment_id": 5,
+    "link": "https://thumbs.cdngr.pl/thumb/aHR0cDovL21lZGlhLmRvbXkucGwvaW1nL3pkamVjaWEveW91cnBvaW50Mi84L3lvdXJwb2ludDJfbXNfMTIyNzElMjUyRjE4MDgwJTI1MkZPTVNfOS5qcGcjdj0xXzM4NzQyOTEzMzE=/3x2_l:fill_and_crop/mieszkanie-na-sprzedaz-gdansk-srodmiescie-48-m.jpg",
+    "style": "other",
+    "id": 64
+  }
+]
