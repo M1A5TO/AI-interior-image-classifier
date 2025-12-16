@@ -13,3 +13,8 @@ scikit-learn
 requests>=2.25.0
 pandas>=1.3.0
 argparse
+pymongo
+clip-anytorch
+requests>=2.25.0
+pandas>=1.3.0
+argparse
