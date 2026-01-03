@@ -1,0 +1,10 @@
+torch
+torchvision
+torchaudio
+git+https://github.com/openai/CLIP.git
+
+pika
+python-dotenv
+requests
+Pillow
+numpy
