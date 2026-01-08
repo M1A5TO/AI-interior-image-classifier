@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""
+Prosty przykład odbierania i wysyłania wiadomości do RabbitMQ z analizą zdjęć.
+Używa API zamiast bezpośredniego połączenia z bazą danych.
+Wszystkie wartości zapisywane do bazy są w lowercase.
+"""
+
 import os
 import json
 import logging
