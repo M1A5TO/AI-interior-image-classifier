@@ -57,3 +57,25 @@ docker compose up --build
 ```
 
 ## 5. GOTOWE - program uruchomi się automatycznie po zbudowaniu kontenera.
+
+## 6. Uruchomienie wielu konsumerów (skalowanie)
+
+Ten worker może działać w wielu instancjach równolegle (RabbitMQ rozdziela wiadomości pomiędzy instancje).
+
+1) Upewnij się, że w `image_analyzer/docker-compose.yml` **nie ma** wpisu `container_name` dla `image-analyzer` (inaczej skalowanie nie zadziała).
+
+2) Uruchom np. 3 instancje:
+
+```
+docker compose up --build --scale image-analyzer=3
+```
+
+3) Sprawdź, czy działają 3 kontenery:
+
+```
+docker compose ps
+```
+
+Uwagi:
+- Każda wiadomość z kolejki `poi_results` zostanie obsłużona tylko przez jedną instancję (model *competing consumers*).
+- Jeśli w kolejce jest mało wiadomości, część instancji będzie po prostu czekać.
